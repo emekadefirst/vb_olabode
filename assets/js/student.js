@@ -54,36 +54,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const parentSelect = document.getElementById("class");
-
-  async function fetchClasses() {
-    try {
-      const response = await fetch("http://127.0.0.1:8000/class/classes", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        data.forEach((parent) => {
-          const option = document.createElement("option");
-          option.value = parent.name;
-          option.textContent = parent.name;
-          parentSelect.appendChild(option);
-        });
-      } else {
-        console.error("Failed to fetch parents");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  }
-
-  fetchClasses();
-});
 
 document
   .getElementById("studentEnrollmentForm")
@@ -105,7 +75,6 @@ document
     formData.append("last_name", document.getElementById("lastName").value); 
     formData.append("date_of_birth",document.getElementById("dateOfBirth").value); 
     formData.append("gender", document.getElementById("gender").value); 
-    formData.append("class_assigned", document.getElementById("class").value); 
     formData.append("parent", document.getElementById("parent_select").value); 
     formData.append("religion",document.getElementById("religion").value ); 
     formData.append("home_address",document.getElementById("homeAddress").value); 
