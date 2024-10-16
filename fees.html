@@ -28,6 +28,7 @@
         /* Adjust based on your content */
     }
 </style>
+
 <body>
     <!-- ========== HEADER ========== -->
     <header
@@ -279,9 +280,9 @@
             <div class="grid gap-4 grid-cols-2 md:grid-cols-[1fr,1fr,1fr,10rem] items-end">
                 <div class="relative">
                     <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5">
-                        <svg class="shrink-0 size-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
+                        <svg class="shrink-0 size-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="11" cy="11" r="8" />
                             <path d="m21 21-4.3-4.3" />
                         </svg>
@@ -290,115 +291,79 @@
                         class="py-2 ps-10 pe-16 block w-full bg-gray-50 border-gray-200 rounded-lg text-sm focus:outline-none focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
                         placeholder="Search payment ...">
                 </div>
-    
+
                 <a href="javascript:void(0)" type="button"
                     onclick="document.getElementById('class-creation-modal').classList.remove('hidden')"
                     class="text-center text-sm px-3 py-2 rounded-md border border-blue-600 bg-blue-600 hover:bg-blue-700 hover:border-blue-700 duration-300">
                     <span class="font-medium text-white text-sm">+ Add new payment</span>
                 </a>
             </div>
-    
+
             <!-- Payment Table -->
-        <div class="bg-white rounded-lg shadow table-wrapper">
-            <table class="w-full leading-normal text-xs sm:text-sm">
-                <thead>
-                    <tr>
-                        <th
-                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                            ID
-                        </th>
-                        <th
-                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                            Student
-                        </th>
-                        <th
-                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                            Term
-                        </th>
-                        <th
-                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                            Payment Name
-                        </th>
-                        <th
-                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                            Amount Paid
-                        </th>
-                        <th
-                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                            Balance
-                        </th>
-                        <th
-                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                            Status
-                        </th>
-                        <th
-                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                            Payment ID
-                        </th>
-                        <th
-                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                            Method
-                        </th>
-                        <th
-                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                            Time
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="px-2 sm:px-5 py-2 sm:py-5 border-b border-gray-200 bg-white whitespace-nowrap">
-                            1
-                        </td>
-                        <td class="px-2 sm:px-5 py-2 sm:py-5 border-b border-gray-200 bg-white whitespace-nowrap">
-                            John Doe
-                        </td>
-                        <td class="px-2 sm:px-5 py-2 sm:py-5 border-b border-gray-200 bg-white whitespace-nowrap">
-                            Fall 2024
-                        </td>
-                        <td class="px-2 sm:px-5 py-2 sm:py-5 border-b border-gray-200 bg-white whitespace-nowrap">
-                            Tuition
-                        </td>
-                        <td class="px-2 sm:px-5 py-2 sm:py-5 border-b border-gray-200 bg-white whitespace-nowrap">
-                            &#8358;1000
-                        </td>
-                        <td class="px-2 sm:px-5 py-2 sm:py-5 border-b border-gray-200 bg-white whitespace-nowrap">
-                            &#8358;500
-                        </td>
-                        <td class="px-2 sm:px-5 py-2 sm:py-5 border-b border-gray-200 bg-white whitespace-nowrap">
-                            <span
-                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                OUTSTANDING
-                            </span>
-                        </td>
-                        <td class="px-2 sm:px-5 py-2 sm:py-5 border-b border-gray-200 bg-white whitespace-nowrap">
-                            PAY001
-                        </td>
-                        <td class="px-2 sm:px-5 py-2 sm:py-5 border-b border-gray-200 bg-white whitespace-nowrap">
-                            CASH
-                        </td>
-                        <td class="px-2 sm:px-5 py-2 sm:py-5 border-b border-gray-200 bg-white whitespace-nowrap">
-                            2024-10-15 10:00:00
-                        </td>
-                    </tr>
-                    <!-- Add more rows as needed -->
-                </tbody>
-            </table>
+            <div class="bg-white rounded-lg shadow table-wrapper">
+                <table class="w-full leading-normal text-xs sm:text-sm">
+                    <thead>
+                        <tr>
+                            <th
+                                class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                ID</th>
+                            <th
+                                class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                Student</th>
+                            <th
+                                class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                Term</th>
+                            <th
+                                class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                Payment Name</th>
+                            <th
+                                class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                Amount Paid</th>
+                            <th
+                                class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                Balance</th>
+                            <th
+                                class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                Status</th>
+                            <th
+                                class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                Payment ID</th>
+                            <th
+                                class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                Transaction ID</th>
+                            <th
+                                class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                Method</th>
+                            <th
+                                class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="paymentTableBody">
+                        <!-- Rows will be dynamically generated here -->
+                    </tbody>
+                </table>
+            </div>
         </div>
-        </div>
-    
+
         <!-- Modal -->
-        <div id="class-creation-modal" class="hidden fixed inset-0 bg-gray-600 m-5 bg-opacity-50 overflow-y-auto h-full w-full"
-            role="dialog" aria-modal="true">
+        <div id="class-creation-modal"
+            class="hidden fixed inset-0 bg-gray-600 m-5 bg-opacity-50 overflow-y-auto h-full w-full" role="dialog"
+            aria-modal="true">
             <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+                <button id="close-modal"
+                    class="absolute top-0 right-0 mt-3 mr-3 text-gray-600 hover:text-gray-800 focus:outline-none">
+                    <i class="fa fa-times"></i>
+                </button>
                 <div class="mt-3 text-center">
                     <h3 class="text-lg leading-6 font-medium text-gray-900">Add new payment</h3>
                     <div class="mt-2 px-7 py-3">
                         <form id="payment-creation">
                             <div class="space-y-4">
-    
+
                                 <div>
-                                    <label for="teacher" class="block text-sm font-medium mb-2 text-left">Student</label>
+                                    <label for="teacher"
+                                        class="block text-sm font-medium mb-2 text-left">Student</label>
                                     <div class="relative">
                                         <select id="student"
                                             class="py-3 px-4 ps-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500"
@@ -414,13 +379,12 @@
                                 <div>
                                     <label for="teacher" class="block text-sm font-medium mb-2 text-left">Term</label>
                                     <div class="relative">
-                                        <select id="term"
-                                            class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500
-                                    focus:ring-blue-500"
-                                            required>
+                                        <select id="term" class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500
+                                    focus:ring-blue-500" required>
                                             <option value="">Select term</option>
                                         </select>
-                                        <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
+                                        <div
+                                            class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
                                         </div>
                                     </div>
                                 </div>
@@ -428,36 +392,36 @@
                                     <label for="teacher" class="block text-sm font-medium mb-2 text-left">Select
                                         payment</label>
                                     <div class="relative">
-                                        <select id="payment-type"
-                                            class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500
-                                    focus:ring-blue-500"
-                                            required>
+                                        <select id="payment-type" class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500
+                                    focus:ring-blue-500" required>
                                             <option value="">Select payment type</option>
                                         </select>
-                                        <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
+                                        <div
+                                            class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
                                         </div>
                                     </div>
                                 </div>
                                 <div>
-                                    <label for="payment_method" class="block text-sm font-medium mb-2 text-left">Payment Method</label>
+                                    <label for="payment_method" class="block text-sm font-medium mb-2 text-left">Payment
+                                        Method</label>
                                     <div class="relative">
-                                        <select id="payment_method"
-                                            class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500
-                                    focus:ring-blue-500"
-                                            required onchange="toggleTransactionInput()">
+                                        <select id="payment_method" class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500
+                                    focus:ring-blue-500" required onchange="toggleTransactionInput()">
                                             <option value="">Select payment method</option>
                                             <option value="POS">POS</option>
                                             <option value="CASH">Cash</option>
                                             <option value="TRANSFER">Transfer</option>
                                         </select>
-                                        <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
+                                        <div
+                                            class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
                                             <!-- Optional: Add an icon if needed -->
                                         </div>
                                     </div>
                                 </div>
 
                                 <div id="transaction-input" style="display: none;">
-                                    <label for="transaction_number" class="block text-sm font-medium mb-2 text-left">Transaction or Reference
+                                    <label for="transaction_number"
+                                        class="block text-sm font-medium mb-2 text-left">Transaction or Reference
                                         Number</label>
                                     <div class="relative">
                                         <input type="text" id="transaction_number" name="transaction_number"
@@ -470,16 +434,15 @@
 
                             </div>
                             <div>
-                                <label for="amount_paid" class="block text-sm font-medium mb-1 mt-3 text-left">Amount</label>
+                                <label for="amount_paid"
+                                    class="block text-sm font-medium mb-1 mt-3 text-left">Amount</label>
                                 <div class="relative">
-                                    <input type="text" id="amount_paid" name="amount_paid"
-                                    class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500
-                                    focus:ring-blue-500"
-                                    placeholder="Enter amount">
+                                    <input type="text" id="amount_paid" name="amount_paid" class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500
+                                    focus:ring-blue-500" placeholder="Enter amount">
                                 </div>
                             </div>
 
-    
+
                             <div class="mt-6">
                                 <button type="submit"
                                     class="w-full px-3 py-3 bg-blue-600 hover:bg-blue-700 duration-200 text-sm font-medium text-white rounded-lg">
@@ -487,12 +450,6 @@
                                 </button>
                             </div>
                         </form>
-                    </div>
-                    <div class="items-center px-4 py-3">
-                        <button id="close-modal"
-                            class="px-4 py-2 bg-transparent text-gray-600 hover:text-gray-800 text-base font-medium w-full focus:outline-none">
-                            <i class="fa fa-times"></i> <!-- Font Awesome 'X' Icon -->
-                        </button>
                     </div>
                 </div>
             </div>
@@ -502,160 +459,10 @@
     <script src="assets/js/index.js"></script>
     <script src="assets/js/getteachers.js"></script>
     <script src="assets/js/dashboard.js"></script>
-    <script>
-        function toggleTransactionInput() {
-            const paymentMethod = document.getElementById('payment_method').value;
-            const transactionInput = document.getElementById('transaction-input');
-            const transactionNumberInput = document.getElementById('transaction_number');
+    <script src="assets/js/fee.js"></script>
 
-            // Show the input field if "POS" or "TRANSFER" is selected
-            if (paymentMethod === 'POS' || paymentMethod === 'TRANSFER') {
-                transactionInput.style.display = 'block';
-                transactionNumberInput.setAttribute('required', 'required'); // Add required attribute
-            } else {
-                transactionInput.style.display = 'none';
-                transactionNumberInput.removeAttribute('required'); // Remove required attribute
-            }
-        }
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-                const parentSelect = document.getElementById("payment-type");
 
-                async function fetchPaymentType() {
-                    try {
-                        const response = await fetch("http://127.0.0.1:8000/payment/payment-types/", {
-                            method: "GET",
-                            headers: {
-                                "Content-Type": "application/json",
-                            },
-                        });
 
-                        if (response.ok) {
-                            const data = await response.json();
-                            data.forEach((type) => {
-                                const option = document.createElement("option");
-                                option.value = type.id;
-                                option.textContent = type.payment_name;
-                                parentSelect.appendChild(option);
-                            });
-                        } else {
-                            console.error("Failed to fetch payment type");
-                        }
-                    } catch (error) {
-                        console.error("Error:", error);
-                    }
-                }
-
-                fetchPaymentType();
-            });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-                    const parentSelect = document.getElementById("student");
-
-                    async function fetctStudent() {
-                        try {
-                            const response = await fetch("http://127.0.0.1:8000/student/students/", {
-                                method: "GET",
-                                headers: {
-                                    "Content-Type": "application/json",
-                                },
-                            });
-
-                            if (response.ok) {
-                                const data = await response.json();
-                                data.forEach((student) => {
-                                    const option = document.createElement("option");
-                                    option.value = student.registration_id;
-                                    option.textContent = `${student.first_name} ${student.last_name}${student.other_name}`;
-                                    parentSelect.appendChild(option);
-                                });
-                            } else {
-                                console.error("Failed to fetch payment type");
-                            }
-                        } catch (error) {
-                            console.error("Error:", error);
-                        }
-                    }
-
-                    fetctStudent();
-                });
-    </script>
-    <script>
-        document.getElementById("payment-creation").addEventListener("submit", async function (event) {
-                event.preventDefault();
-
-                const formData = new FormData();
-                formData.append("payment_name", document.getElementById("payment-type").value); // Corrected ID
-                formData.append("student", document.getElementById("student").value);
-                formData.append("term", document.getElementById("term").value);
-                formData.append("method", document.getElementById("payment_method").value); // Updated ID for payment method
-                formData.append("amount_paid", document.getElementById("amount_paid").value);
-
-                // Only append transaction number if it is visible
-                const transactionNumberInput = document.getElementById("transaction_number");
-                if (transactionNumberInput.style.display !== 'none') {
-                    formData.append("transaction_number", transactionNumberInput.value);
-                }
-
-                try {
-                    const response = await fetch("http://127.0.0.1:8000/payment/physical-payments/", {
-                        method: "POST",
-                        body: formData,
-                        headers: {},
-                    });
-
-                    if (response.ok) {
-                        const data = await response.json();
-                        alert("Payment successfully!");
-                        document.getElementById("payment-creation").reset(); // Reset the correct form ID
-                        document.getElementById("imagePreview").classList.add("hidden");
-                    } else {
-                        const errorData = await response.json();
-                        alert("Failed to save payment", error);
-                    }
-                } catch (error) {
-                    console.error("An error occurred. Please try again later.", error);
-                    alert("An error occurred. Please try again later.");
-                }
-            });
-
-    </script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-            const parentSelect = document.getElementById("term");
-
-            async function fetchTerm() {
-                try {
-                    const response = await fetch("http://127.0.0.1:8000/term/all/", {
-                        method: "GET",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                    });
-
-                    if (response.ok) {
-                        const data = await response.json();
-                        data.forEach((type) => {
-                            const option = document.createElement("option");
-                            option.value = type.name;
-                            option.textContent = type.name;
-                            parentSelect.appendChild(option);
-                        });
-                    } else {
-                        console.error("Failed to fetch term");
-                    }
-                } catch (error) {
-                    console.error("Error:", error);
-                }
-            }
-
-            fetchTerm();
-        });
-</script>
 </body>
 
 </html>
-
-

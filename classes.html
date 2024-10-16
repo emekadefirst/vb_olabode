@@ -362,17 +362,21 @@
                             <p class="text-gray-800 font-medium text-xs teacher-id">Teacher ID</p>
                         </div>
 
-                        <a href="teacher-profile.html"
-                            class="mt-4 block font-semibold underline text-blue-600 text-xs">View teacher's details</a>
+                        <a id="view-teacher-details" href="#" class="mt-4 block font-semibold underline text-blue-600 text-xs">View teacher's
+                            details</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <script>
+
+</script>
+<script>
+
     document.addEventListener('DOMContentLoaded', function () {
+        const viewTeacherDetailsLink = document.getElementById('view-teacher-details');
         const classUrl = 'http://127.0.0.1:8000/class/classes/';
         fetch(classUrl)
             .then(response => response.json())
@@ -380,6 +384,7 @@
                 populateClassDropdown(data);
             })
             .catch(error => console.error('Error fetching class data:', error));
+
 
         function populateClassDropdown(classes) {
             const classSelect = document.getElementById('class');
@@ -470,12 +475,14 @@
             const teacherProfileImage = document.querySelector('.teacher-profile-image');
             const teacherName = document.querySelector('.teacher-name');
             const teacherSubject = document.querySelector('.teacher-subject');
-            const teacherId = document.querySelector('.teacher-id');
+            const teacherStaffID = document.querySelector('.teacher-id');
+            const teacherUrl = document.querySelector('.profile-url');
 
             if (teacher) {
                 teacherProfileImage.src = teacher.img_url || 'assets/images/teacher-pfp.png';
                 teacherName.textContent = `${teacher.first_name} ${teacher.last_name}`;
-                teacherId.textContent = teacher.staff_id;
+                teacherStaffID.textContent = teacher.staff_id;
+                viewTeacherDetailsLink.setAttribute('href', `teacher-profile.html?staffID=${teacher.id}`);
             } else {
                 teacherProfileImage.src = 'assets/images/default-profile.png';
                 teacherName.textContent = 'No teacher assigned';

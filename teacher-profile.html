@@ -274,127 +274,139 @@
                 </a>
             </div>
 
-            <div class="bg-white px-6 py-10 rounded-lg">
-                <div class="flex items-start justify-between">
-                    <div
-                        class="w-[95px] h-[95px] md:w-[125px] md:h-[125px] rounded-full overflow-hidden border border-blue-600 border-4">
-                        <img src="assets/images/enrol-teacher.png" alt="pfp" class="w-full h-full object-cover">
-                    </div>
+        <div class="bg-white px-6 py-10 rounded-lg">
+            <div class="flex items-start justify-between">
+                <div
+                    class="w-[95px] h-[95px] md:w-[125px] md:h-[125px] rounded-full overflow-hidden border border-blue-600 border-4">
+                    <img src="assets/images/enrol-teacher.png" alt="pfp"
+                        class="teacher-profile-image w-full h-full object-cover">
+                </div>
+                <div>
+                    <img src="assets/images/dots.svg" alt="dots">
+                </div>
+            </div>
 
-                    <div>
-                        <img src="assets/images/dots.svg" alt="dots">
+            <div class="flex items-end justify-between">
+                <div class="pl-2 mt-3">
+                    <div class="flex items-center space-x-2">
+                        <h1 class="text-xl md:text-2xl font-bold teacher-name"></h1>
+                        <span class="bg-green-100 text-green-600 font-medium text-xs px-2 py-1 rounded-full status"></span>
+                    </div>
+                    <div class="flex items-center space-x-2 cursor-pointer mt-1">
+                        <p class="text-gray-800 font-medium text-sm teacher-id"></p>
+                    </div>
+                    <p class="mt-2 text-gray-500 font-bold text-sm uppercase position"></p>
+                </div>
+            </div>
+
+            <div class="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-4">
+                <div>
+                    <p class="text-gray-500 font-medium text-md mb-2">Gender</p>
+                    <div class="flex items-center space-x-2">
+                        <i class="fa fa-user bg-blue-600 text-white px-3 py-2.5 rounded-full"></i>
+                        <p class="text-md font-semibold gender"></p>
                     </div>
                 </div>
-
-                <div class="flex items-end justify-between">
-                    <div class="pl-2 mt-3">
-                        <div class="flex items-center space-x-2">
-                            <h1 class="text-xl md:text-2xl font-bold ">Nmesoma Okoye</h1>
-
-                            <span
-                                class="bg-green-100 text-green-600 font-medium text-xs px-2 py-1 rounded-full">Present</span>
-                        </div>
-                        <div class="flex items-center space-x-2 cursor-pointer mt-1">
-
-                            <p class="text-gray-800 font-medium text-sm">VD678237823</p>
-                            <img src="assets/images/copy-regular.svg" alt="copy icon" class="w-[16px]">
-                        </div>
-
-                        <p class="mt-2 text-gray-500 font-bold text-sm uppercase">biology teacher</p>
+                <div>
+                    <p class="text-gray-500 font-medium text-md mb-2">Type</p>
+                    <div class="flex items-center space-x-2">
+                        <i class="fa fa-calendar-days bg-blue-600 text-white px-3 py-3 rounded-full"></i>
+                        <p class="text-md font-semibold employment-type"></p>
                     </div>
-
-                    <button
-                        class="mt-4 bg-blue-600 text-white text-sm px-4 py-2 rounded-lg font-medium hover:bg-blue-700 duration-150 flex space-x-2 items-center">
-                        <i class="fa fa-pencil"></i>
-                        <span>Edit data</span>
-                    </button>
                 </div>
-
-                <div class="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-4">
-                    <div>
-                        <p class="text-gray-500 font-medium text-md mb-2">Gender</p>
-                        <div class="flex items-center space-x-2">
-                            <i class="fa fa-user bg-blue-600 text-white px-3 py-2.5 rounded-full"></i>
-                    
-                            <p class="text-md font-semibold">Female</p>
-                        </div>
+                <div>
+                    <p class="text-gray-500 font-medium text-md mb-2">Date of employment</p>
+                    <div class="flex items-center space-x-2">
+                        <i class="fa fa-calendar bg-blue-600 text-white px-3 py-3 rounded-full"></i>
+                        <p class="text-md font-semibold employment-date"></p>
                     </div>
-
-                    <div>
-                        <p class="text-gray-500 font-medium text-md mb-2">Type</p>
-                        <div class="flex items-center space-x-2">
-                            <i class="fa fa-calendar-days bg-blue-600 text-white px-3 py-3 rounded-full"></i>
-
-                            <p class="text-md font-semibold">Permannent</p>
-                        </div>
+                </div>
+                <div>
+                    <p class="text-gray-500 font-medium text-md mb-2">NIN</p>
+                    <div class="flex items-center space-x-2">
+                        <i class="fa fa-book bg-blue-600 text-white px-3 py-3 rounded-full"></i>
+                        <p class="text-md font-semibold nin"></p>
                     </div>
-
-                    <div>
-                        <p class="text-gray-500 font-medium text-md mb-2">Date of employment</p>
-                        <div class="flex items-center space-x-2">
-                            <i class="fa fa-calendar bg-blue-600 text-white px-3 py-3 rounded-full"></i>
-
-                            <p class="text-md font-semibold">12 April, 2016</p>
-                        </div>
+                </div>
+                <div>
+                    <p class="text-gray-500 font-medium text-md mb-2">Address</p>
+                    <div class="flex items-center space-x-2">
+                        <i class="fa fa-house bg-blue-600 text-white px-3 py-3 rounded-full"></i>
+                        <p class="text-md font-semibold address"></p>
                     </div>
-
-                    <div>
-                        <p class="text-gray-500 font-medium text-md mb-2">Expected year of graduation</p>
-                        <div class="flex items-center space-x-2">
-                            <i class="fa fa-graduation-cap bg-blue-600 text-white px-3 py-3 rounded-full"></i>
-
-                            <p class="text-md font-semibold">2020</p>
-                        </div>
+                </div>
+                <div>
+                    <p class="text-gray-500 font-medium text-md mb-2">Phone number 1</p>
+                    <div class="flex items-center space-x-2">
+                        <i class="fa fa-phone bg-blue-600 text-white px-3 py-3 rounded-full"></i>
+                        <p class="text-md font-semibold phone-1"></p>
                     </div>
-
-                    <div>
-                        <p class="text-gray-500 font-medium text-md mb-2">Parents</p>
-                        <div class="flex items-center space-x-2">
-                            <i class="fa fa-user bg-blue-600 text-white px-3 py-3 rounded-full"></i>
-
-                            <p class="text-md font-semibold">Mr Okoye</p>
-                        </div>
+                </div>
+                <div>
+                    <p class="text-gray-500 font-medium text-md mb-2">Phone number 2</p>
+                    <div class="flex items-center space-x-2">
+                        <i class="fa fa-phone bg-blue-600 text-white px-3 py-3 rounded-full"></i>
+                        <p class="text-md font-semibold phone-2"></p>
                     </div>
-
-                    <div>
-                        <p class="text-gray-500 font-medium text-md mb-2">Address</p>
-                        <div class="flex items-center space-x-2">
-                            <i class="fa fa-graduation-cap bg-blue-600 text-white px-3 py-3 rounded-full"></i>
-
-                            <p class="text-md font-semibold">1 Egbeda Close, Lagos</p>
-                        </div>
-                    </div>
-
-                    <div>
-                        <p class="text-gray-500 font-medium text-md mb-2">Phone</p>
-                        <div class="flex items-center space-x-2">
-                            <i class="fa fa-phone bg-blue-600 text-white px-3 py-3 rounded-full"></i>
-
-                            <p class="text-md font-semibold">+234 80 6272 672</p>
-                        </div>
-                    </div>
-
-                    <div>
-                        <p class="text-gray-500 font-medium text-md mb-2">Email</p>
-                        <div class="flex items-center space-x-2">
-                            <i class="fa fa-envelope bg-blue-600 text-white px-3 py-3 rounded-full"></i>
-
-                            <p class="text-md font-semibold">okoyesir@gmail.com</p>
-                        </div>
+                </div>
+                <div>
+                    <p class="text-gray-500 font-medium text-md mb-2">Email</p>
+                    <div class="flex items-center space-x-2">
+                        <i class="fa fa-envelope bg-blue-600 text-white px-3 py-3 rounded-full"></i>
+                        <p class="text-md font-semibold email"></p>
                     </div>
                 </div>
             </div>
+        </div>
+
+
+
 
         </div>
 
     </div>
-    <!-- End Content -->
-    <!-- ========== END MAIN CONTENT ========== -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const staffID = urlParams.get('staffID');
+        const teacherApiUrl = `http://127.0.0.1:8000/staff/staff/${staffID}`;
+        if (staffID) {
+            fetch(teacherApiUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(teacher => {
+                    renderTeacherDetails(teacher);
+                })
+                .catch(error => console.error('Error fetching teacher details:', error));
+        }
 
-    <!-- JS Implementing Plugins -->
-    <!-- Required plugins -->
+        function renderTeacherDetails(teacher) {
+            // Populate the HTML elements with the teacher's details
+            document.querySelector('.teacher-name').textContent = `${teacher.first_name} ${teacher.last_name} ${teacher.other_name}`;
+            document.querySelector('.teacher-id').textContent = teacher.staff_id;
+            document.querySelector('.teacher-profile-image').src = teacher.img_url || 'assets/images/default-profile.png';
+            document.querySelector('.gender').textContent = teacher.gender;
+            document.querySelector('.employment-type').textContent = teacher.employment_type;
+            document.querySelector('.employment-date').textContent = new Date(teacher.created_at).toLocaleDateString();
+            document.querySelector('.nin').textContent = teacher.nin; // Updated from 'expected-graduation-year' // Update with actual parent information if available
+            document.querySelector('.address').textContent = teacher.home_address;
+            document.querySelector('.status').textContent = teacher.status;
+            // Correctly select and assign phone numbers
+            document.querySelector('.phone-1').textContent = teacher.phone_number_1; 
+            document.querySelector('.phone-2').textContent = teacher.phone_number_2; 
+            document.querySelector('.email').textContent = teacher.email; 
+        }
+    });
+</script>
+
     <script src="assets/js/index.js"></script>
     <script src="assets/js/dashboard.js"></script>
+    
+    
 
 </body>
 
