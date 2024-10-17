@@ -1,7 +1,7 @@
 async function fetchPaymentData() {
   try {
     const response = await fetch(
-      "http://127.0.0.1:8000/payment/physical-payments/"
+      "https://verbumdei-management-system-vms.onrender.com/payment/physical-payments/"
     );
     return await response.json();
   } catch (error) {

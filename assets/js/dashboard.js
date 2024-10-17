@@ -1,8 +1,9 @@
 // Fetch profile details from session storage
-const profile_image = sessionStorage.getItem("profile_image");
-const email = sessionStorage.getItem("email");
-const first_name = sessionStorage.getItem("first_name");
-const last_name = sessionStorage.getItem("last_name");
+const profile_image = localStorage.getItem("profile_image");
+const token = localStorage.getItem("authToken");
+const email = localStorage.getItem("email");
+const first_name = localStorage.getItem("first_name");
+const last_name = localStorage.getItem("last_name");
 const fullname = `${first_name} ${last_name}`;
 
 // Update the UI with profile details
@@ -30,11 +31,12 @@ if (fullname && fullnameElement) {
 async function fetchStudentCount() {
   try {
     const StudentCount = await fetch(
-      "http://127.0.0.1:8000/student/student-count/",
+      "https://verbumdei-management-system-vms.onrender.com/student/student-count/",
       {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Token ${token}`,
         },
       }
     );
@@ -58,12 +60,15 @@ async function fetchStudentCount() {
 // Fetch total number of staff
 async function fetchStaffCount() {
   try {
-    const StaffCount = await fetch("http://127.0.0.1:8000/staff/staff-count/", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const StaffCount = await fetch(
+      "https://verbumdei-management-system-vms.onrender.com/staff/staff-count/",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     if (StaffCount.ok) {
       const staffCountData = await StaffCount.json();
@@ -84,12 +89,16 @@ async function fetchStaffCount() {
 // Fetch total number of subject
 async function fetchSubjectCount() {
   try {
-    const SubjectCount = await fetch("http://127.0.0.1:8000/class/subjects/count/", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const SubjectCount = await fetch(
+      "https://verbumdei-management-system-vms.onrender.com/class/subjects/count/",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+      }
+    );
 
     if (SubjectCount.ok) {
       const subjectCountData = await SubjectCount.json();
@@ -107,10 +116,12 @@ async function fetchSubjectCount() {
   }
 }
 
-// Fetch total tuition 
+// Fetch total tuition
 async function totalTuition() {
   try {
-    const total = await fetch("http://127.0.0.1:8000/payment/total-tuition/", {
+    const total = await fetch(
+      "https://verbumdei-management-system-vms.onrender.com/payment/total-tuition/",
+      {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -128,9 +139,9 @@ async function totalTuition() {
       if (sumElement) {
         sumElement.textContent = sum;
       }
-     if (percElement) {
-       percElement.textContent = perc;
-     }
+      if (percElement) {
+        percElement.textContent = perc;
+      }
     } else {
       console.error("Failed to revenue data");
     }
@@ -144,3 +155,219 @@ totalTuition();
 fetchSubjectCount();
 fetchStudentCount();
 fetchStaffCount();
+
+const calendarGrid = document.getElementById("calendar");
+const monthYear = document.getElementById("monthYear");
+const prevMonth = document.getElementById("prevMonth");
+const nextMonth = document.getElementById("nextMonth");
+
+let currentDate = new Date();
+
+function renderCalendar(date) {
+  const month = date.getMonth();
+  const year = date.getFullYear();
+
+  // Clear the calendar grid
+  calendarGrid.innerHTML = "";
+
+  // Set month and year in header
+  monthYear.textContent =
+    date.toLocaleString("default", { month: "long" }) + " " + year;
+
+  // Create header for days of the week
+  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  days.forEach((day) => {
+    const headerCell = document.createElement("div");
+    headerCell.className = "header-cell";
+    headerCell.textContent = day;
+    calendarGrid.appendChild(headerCell);
+  });
+
+  // Get the first day of the month and the last day of the month
+  const firstDay = new Date(year, month, 1);
+  const lastDay = new Date(year, month + 1, 0);
+
+  // Get today's date
+  const today = new Date();
+
+  // Fill the calendar grid with empty divs until the first day
+  for (let i = 0; i < firstDay.getDay(); i++) {
+    calendarGrid.appendChild(document.createElement("div"));
+  }
+
+  // Fill the calendar with the days of the month
+  for (let i = 1; i <= lastDay.getDate(); i++) {
+    const dayCell = document.createElement("div");
+    dayCell.className = "day-cell";
+    dayCell.textContent = i;
+
+    // Highlight the current date
+    if (
+      i === today.getDate() &&
+      month === today.getMonth() &&
+      year === today.getFullYear()
+    ) {
+      dayCell.classList.add("current-day"); // Add the current-day class
+    }
+
+    calendarGrid.appendChild(dayCell);
+  }
+}
+
+// Event listeners for navigation
+prevMonth.addEventListener("click", () => {
+  currentDate.setMonth(currentDate.getMonth() - 1);
+  renderCalendar(currentDate);
+});
+
+nextMonth.addEventListener("click", () => {
+  currentDate.setMonth(currentDate.getMonth() + 1);
+  renderCalendar(currentDate);
+});
+
+// Initial render
+renderCalendar(currentDate);
+
+let allEvents = []; // Store all events globally
+
+async function fetchEvents() {
+  try {
+    const response = await fetch(
+      "https://verbumdei-management-system-vms.onrender.com/program/events/"
+    );
+    allEvents = await response.json(); // Store fetched events
+    displayEvents(allEvents); // Display all events initially
+  } catch (error) {
+    console.error("Error fetching events:", error);
+  }
+}
+
+function displayEvents(events) {
+  const eventsContainer = document.getElementById("events-container");
+  eventsContainer.innerHTML = ""; // Clear existing content
+
+  // Loop through events and create HTML
+  events.forEach((event) => {
+    const eventDate = new Date(event.date);
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
+    const formattedDate = eventDate.toLocaleDateString("en-US", options);
+
+    const eventCard = `
+                        <div class="bg-blue-800 px-3 py-2 border-l border-orange-400 border-l-2">
+                            <h3 class="text-white text-sm font-bold">${formattedDate}</h3>
+                            <p class="text-gray-50 text-xs my-1 font-medium">${event.name}</p>
+                            <div class="flex justify-end">
+                                <p class="text-white font-medium text-xs">${formattedDate}</p>
+                            </div>
+                        </div>
+                    `;
+    eventsContainer.innerHTML += eventCard;
+  });
+}
+
+function filterEvents(filter) {
+  let filteredEvents = allEvents;
+
+  const today = new Date();
+  switch (filter) {
+    case "today":
+      filteredEvents = allEvents.filter((event) => {
+        const eventDate = new Date(event.date);
+        return eventDate.toDateString() === today.toDateString();
+      });
+      break;
+    case "weekly":
+      const nextWeek = new Date();
+      nextWeek.setDate(today.getDate() + 7);
+      filteredEvents = allEvents.filter((event) => {
+        const eventDate = new Date(event.date);
+        return eventDate >= today && eventDate <= nextWeek;
+      });
+      break;
+    case "monthly":
+      const nextMonth = new Date();
+      nextMonth.setMonth(today.getMonth() + 1);
+      filteredEvents = allEvents.filter((event) => {
+        const eventDate = new Date(event.date);
+        return eventDate >= today && eventDate < nextMonth;
+      });
+      break;
+    default:
+      break; // No filter applied
+  }
+
+  displayEvents(filteredEvents); // Display filtered events
+}
+
+// Event listeners for filter buttons
+document.getElementById("all-button").onclick = () => {
+  filterEvents("all");
+  document
+    .getElementById("all-button")
+    .classList.add("bg-blue-100", "border", "border-blue-100");
+  document
+    .getElementById("today-button")
+    .classList.remove("bg-blue-100", "border", "border-blue-100");
+  document
+    .getElementById("weekly-button")
+    .classList.remove("bg-blue-100", "border", "border-blue-100");
+  document
+    .getElementById("monthly-button")
+    .classList.remove("bg-blue-100", "border", "border-blue-100");
+};
+
+document.getElementById("today-button").onclick = () => {
+  filterEvents("today");
+  document
+    .getElementById("today-button")
+    .classList.add("bg-blue-100", "border", "border-blue-100");
+  document
+    .getElementById("all-button")
+    .classList.remove("bg-blue-100", "border", "border-blue-100");
+  document
+    .getElementById("weekly-button")
+    .classList.remove("bg-blue-100", "border", "border-blue-100");
+  document
+    .getElementById("monthly-button")
+    .classList.remove("bg-blue-100", "border", "border-blue-100");
+};
+
+document.getElementById("weekly-button").onclick = () => {
+  filterEvents("weekly");
+  document
+    .getElementById("weekly-button")
+    .classList.add("bg-blue-100", "border", "border-blue-100");
+  document
+    .getElementById("all-button")
+    .classList.remove("bg-blue-100", "border", "border-blue-100");
+  document
+    .getElementById("today-button")
+    .classList.remove("bg-blue-100", "border", "border-blue-100");
+  document
+    .getElementById("monthly-button")
+    .classList.remove("bg-blue-100", "border", "border-blue-100");
+};
+
+document.getElementById("monthly-button").onclick = () => {
+  filterEvents("monthly");
+  document
+    .getElementById("monthly-button")
+    .classList.add("bg-blue-100", "border", "border-blue-100");
+  document
+    .getElementById("all-button")
+    .classList.remove("bg-blue-100", "border", "border-blue-100");
+  document
+    .getElementById("today-button")
+    .classList.remove("bg-blue-100", "border", "border-blue-100");
+  document
+    .getElementById("weekly-button")
+    .classList.remove("bg-blue-100", "border", "border-blue-100");
+};
+
+// Call the fetchEvents function on page load
+window.onload = fetchEvents;

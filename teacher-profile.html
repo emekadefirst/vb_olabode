@@ -369,7 +369,7 @@
     document.addEventListener('DOMContentLoaded', function () {
         const urlParams = new URLSearchParams(window.location.search);
         const staffID = urlParams.get('staffID');
-        const teacherApiUrl = `http://127.0.0.1:8000/staff/staff/${staffID}`;
+        const teacherApiUrl = `https://verbumdei-management-system-vms.onrender.com/staff/staff/${staffID}`;
         if (staffID) {
             fetch(teacherApiUrl)
                 .then(response => {

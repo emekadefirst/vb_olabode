@@ -1,14 +1,19 @@
+const token = localStorage.getItem("authToken");
 document.addEventListener("DOMContentLoaded", function () {
   const parentSelect = document.getElementById("teacher");
 
   async function fetchTeacher() {
     try {
-      const response = await fetch("http://127.0.0.1:8000/staff/staff", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        "https://verbumdei-management-system-vms.onrender.com/staff/staff",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${token}`,
+          },
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
@@ -49,14 +54,16 @@ document
     formData.append("teacher", teacherName);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/class/classes/", {
-        method: "POST",
-        body: formData,
-        headers: {
-          // Add necessary headers if needed, for example:
-          // 'X-CSRFToken': csrftoken,  (for Django CSRF protection)
-        },
-      });
+      const response = await fetch(
+        "https://verbumdei-management-system-vms.onrender.com/class/classes/",
+        {
+          method: "POST",
+          body: formData,
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
@@ -83,8 +90,6 @@ document
     }
   });
 
-
-
 document
   .getElementById("subject-creation")
   .addEventListener("submit", async function (event) {
@@ -95,11 +100,14 @@ document
     formData.append("teacher", document.getElementById("teacher").value);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/class/subjects/", {
-        method: "POST",
-        body: formData,
-        headers: {},
-      });
+      const response = await fetch(
+        "https://verbumdei-management-system-vms.onrender.com/class/subjects/",
+        {
+          method: "POST",
+          body: formData,
+          headers: {},
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();

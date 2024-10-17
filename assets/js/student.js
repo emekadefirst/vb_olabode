@@ -59,7 +59,7 @@ document
   .getElementById("studentEnrollmentForm")
   .addEventListener("submit", async function (event) {
     event.preventDefault();
-
+    const token = localStorage.getItem("authToken");
 
     const fileInput = document.getElementById("fileInput").files[0];
     if (fileInput && fileInput.size > 2 * 1024 * 1024) {
@@ -83,13 +83,16 @@ document
     formData.append("nationality",document.getElementById("nationality").value); 
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/student/students/", {
-        method: "POST",
-        body: formData,
-        headers: {
-          "X-CSRFToken": getCSRFToken(),
-        },
-      });
+      const response = await fetch(
+        "https://verbumdei-management-system-vms.onrender.com/student/students/",
+        {
+          method: "POST",
+          body: formData,
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
@@ -105,16 +108,6 @@ document
     }
   });
 
-function getCSRFToken() {
-  let csrfToken = null;
-  const cookies = document.cookie.split(";");
-  cookies.forEach((cookie) => {
-    const trimmedCookie = cookie.trim();
-    if (trimmedCookie.startsWith("csrftoken=")) {
-      csrfToken = trimmedCookie.split("=")[1];
-    }
-  });
-  return csrfToken;
-}
+
 
 

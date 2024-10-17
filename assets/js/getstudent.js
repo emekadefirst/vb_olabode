@@ -1,15 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
-  fetch("http://127.0.0.1:8000/student/students/")
+  const token = localStorage.getItem("authToken");
+  fetch(
+    "https://verbumdei-management-system-vms.onrender.com/student/students/",
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Token ${token}`,
+        "Content-Type": "application/json",
+      },
+    }
+  )
     .then((response) => response.json())
     .then((data) => {
       const tableBody = document.getElementById("student-table-body");
       const noResultsDiv = document.getElementById("no-results");
 
       if (data.length === 0) {
-        // Show the no-results message if there are no students
         noResultsDiv.style.display = "block";
       } else {
-        // Hide the no-results message and display the table if there are students
         noResultsDiv.style.display = "none";
 
         data.forEach((student) => {
@@ -51,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
           `;
           tableBody.innerHTML += row;
 
-          // Set the href for the dynamically created link
           const viewTeacherDetailsLink = document.getElementById(
             `view-teacher-details-${student.id}`
           );
@@ -65,4 +72,96 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch((error) => {
       console.error("Error fetching student data:", error);
     });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const token = localStorage.getItem("authToken");
+  const studentID = urlParams.get("studentID");
+  const studentApiUrl = `https://verbumdei-management-system-vms.onrender.com/student/student/${studentID}`;
+  const paymentApiUrl = `https://verbumdei-management-system-vms.onrender.com/payment/physical-payments/`;
+
+  if (studentID) {
+    fetch(studentApiUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((student) => {
+        renderStudentDetails(student);
+        fetchPaymentHistory(student.registration_id);
+      })
+      .catch((error) =>
+        console.error("Error fetching student details:", error)
+      );
+  }
+
+  function renderStudentDetails(student) {
+    document.querySelector(
+      ".student-name"
+    ).textContent = `${student.first_name} ${student.other_name} ${student.last_name}`;
+    document.querySelector(".student-id").textContent = student.registration_id;
+    document.querySelector(".student-profile-image").src =
+      student.img_url || "assets/images/default-profile.png";
+    document.querySelector(".age").textContent = `${student.date_of_birth} (${
+      new Date().getFullYear() - new Date(student.date_of_birth).getFullYear()
+    })`;
+    document.querySelector(".gender").textContent = student.gender;
+    document.querySelector(".registration-date").textContent = new Date(
+      student.registration_date
+    ).toLocaleDateString();
+    document.querySelector(".parent").textContent = student.parent;
+    document.querySelector(".home-address").textContent = student.home_address;
+  }
+
+  function fetchPaymentHistory(registrationID) {
+    fetch(`${paymentApiUrl}?registration_id=${registrationID}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((payments) => {
+        renderPaymentHistory(payments);
+      })
+      .catch((error) =>
+        console.error("Error fetching payment history:", error)
+      );
+  }
+
+  function renderPaymentHistory(payments) {
+    const paymentHistoryTable = document.getElementById(
+      "payment-history-table-body"
+    );
+    payments.forEach((payment) => {
+      const row = `
+                <tr>
+                    <td>${new Date(payment.date).toLocaleDateString()}</td>
+                    <td>${payment.amount}</td>
+                    <td class="${getStatusClass(payment.status)}">${
+        payment.status
+      }</td>
+                </tr>
+            `;
+      paymentHistoryTable.innerHTML += row;
+    });
+  }
+
+  function getStatusClass(status) {
+    switch (status) {
+      case "COMPLETED":
+        return "text-green-500";
+      case "PENDING":
+        return "text-amber-500";
+      case "OUTSTANDING":
+        return "text-red-500";
+      default:
+        return "";
+    }
+  }
 });

@@ -115,13 +115,16 @@ document
     );
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/staff/staff/", {
-        method: "POST",
-        body: formData,
-        headers: {
-          "X-CSRFToken": getCSRFToken(),
-        },
-      });
+      const response = await fetch(
+        "https://verbumdei-management-system-vms.onrender.com/staff/staff/",
+        {
+          method: "POST",
+          body: formData,
+          headers: {
+            "X-CSRFToken": getCSRFToken(),
+          },
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();

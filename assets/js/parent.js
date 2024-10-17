@@ -4,22 +4,22 @@ document.getElementById('parentForm').addEventListener('submit', function (e) {
     const formData = new FormData(this);
     const data = Object.fromEntries(formData.entries());
 
-    fetch('http://127.0.0.1:8000/parent/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+    fetch("https://verbumdei-management-system-vms.onrender.com/parent/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
     })
-        .then(response => response.json())
-        .then(data => {
-            alert('Form submitted successfully!');
-                form.reset();
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-            alert('An error occurred. Please try again.');
-        });
+      .then((response) => response.json())
+      .then((data) => {
+        alert("Form submitted successfully!");
+        form.reset();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("An error occurred. Please try again.");
+      });
 });
 
 
@@ -28,12 +28,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function fetchParents() {
         try {
-            const response = await fetch("http://127.0.0.1:8000/parent/", {
+            const response = await fetch(
+              "https://verbumdei-management-system-vms.onrender.com/parent/",
+              {
                 method: "GET",
                 headers: {
-                    "Content-Type": "application/json",
+                  "Content-Type": "application/json",
                 },
-            });
+              }
+            );
 
             if (response.ok) {
                 const data = await response.json();

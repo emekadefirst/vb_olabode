@@ -1,17 +1,19 @@
 
     document.addEventListener("DOMContentLoaded", function () {
-            fetch("http://127.0.0.1:8000/staff/staff/")
-                .then((response) => response.json())
-                .then((data) => {
-                    const tableBody = document.getElementById("teacher-frame");
+            fetch(
+              "https://verbumdei-management-system-vms.onrender.com/staff/staff/"
+            )
+              .then((response) => response.json())
+              .then((data) => {
+                const tableBody = document.getElementById("teacher-frame");
 
-                    if (data.length === 0) {
-                        console.log("No staff members found.");
-                        return;
-                    }
+                if (data.length === 0) {
+                  console.log("No staff members found.");
+                  return;
+                }
 
-                    data.forEach((staff) => {
-                        const row = `
+                data.forEach((staff) => {
+                  const row = `
                 <div class="bg-white px-3 py-5 rounded-lg text-center">
                     <div class="flex items-center justify-between">
                         <span class="p-2 bg-green-500 rounded-full"></span>
@@ -43,12 +45,12 @@
 
                 </div>
             `;
-                        tableBody.innerHTML += row;
-                    });
-                })
-                .catch((error) => {
-                    console.error("Error fetching staff data:", error);
+                  tableBody.innerHTML += row;
                 });
+              })
+              .catch((error) => {
+                console.error("Error fetching staff data:", error);
+              });
         });
 
     // Function to copy the staff_id to clipboard
