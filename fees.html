@@ -526,13 +526,14 @@
     <script src="assets/js/allpayment.js"></script>
     <script src="assets/js/makepayment.js"></script>
     <script>
+        import api from "./api.js"
         document.addEventListener("DOMContentLoaded", function () {
                 const termSelect = document.getElementById("term");
 
 
                 async function fetchTerm() {
                     try {
-                        const response = await fetch("https://verbumdei-management-system-vms.onrender.com/term/all/", {
+                        const response = await fetch(`${api}/term/all/`, {
                             method: "GET",
                             headers: {
                                 "Content-Type": "application/json",
@@ -568,13 +569,15 @@
 
     </script>
     <script>
+        import { api } from "./api.js";
+
         document.addEventListener("DOMContentLoaded", function () {
             const termSelect = document.getElementById("term-add");
 
 
             async function fetchTerm() {
                 try {
-                    const response = await fetch("https://verbumdei-management-system-vms.onrender.com/term/all/", {
+                    const response = await fetch(`${api}/term/all/`, {
                         method: "GET",
                         headers: {
                             "Content-Type": "application/json",

@@ -1,7 +1,8 @@
 
+import { api } from "./api.js";
     document.addEventListener("DOMContentLoaded", function () {
             fetch(
-              "https://verbumdei-management-system-vms.onrender.com/staff/staff/"
+              `${api}/staff/staff/`
             )
               .then((response) => response.json())
               .then((data) => {

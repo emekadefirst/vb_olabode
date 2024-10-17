@@ -1,4 +1,6 @@
 // Fetch profile details from session storage
+import { api } from "./api.js";
+
 const profile_image = localStorage.getItem("profile_image");
 const token = localStorage.getItem("authToken");
 const email = localStorage.getItem("email");
@@ -31,7 +33,7 @@ if (fullname && fullnameElement) {
 async function fetchStudentCount() {
   try {
     const StudentCount = await fetch(
-      "https://verbumdei-management-system-vms.onrender.com/student/student-count/",
+      `${api}/student/student-count/`,
       {
         method: "GET",
         headers: {
@@ -61,7 +63,7 @@ async function fetchStudentCount() {
 async function fetchStaffCount() {
   try {
     const StaffCount = await fetch(
-      "https://verbumdei-management-system-vms.onrender.com/staff/staff-count/",
+      `${api}/staff/staff-count/`,
       {
         method: "GET",
         headers: {
@@ -90,7 +92,7 @@ async function fetchStaffCount() {
 async function fetchSubjectCount() {
   try {
     const SubjectCount = await fetch(
-      "https://verbumdei-management-system-vms.onrender.com/class/subjects/count/",
+      `${api}/class/subjects/count/`,
       {
         method: "GET",
         headers: {
@@ -120,7 +122,7 @@ async function fetchSubjectCount() {
 async function totalTuition() {
   try {
     const total = await fetch(
-      "https://verbumdei-management-system-vms.onrender.com/payment/total-tuition/",
+      `${api}/payment/total-tuition/`,
       {
         method: "GET",
         headers: {
@@ -233,7 +235,7 @@ let allEvents = []; // Store all events globally
 async function fetchEvents() {
   try {
     const response = await fetch(
-      "https://verbumdei-management-system-vms.onrender.com/program/events/"
+      `${api}/program/events/`
     );
     allEvents = await response.json(); // Store fetched events
     displayEvents(allEvents); // Display all events initially

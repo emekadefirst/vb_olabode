@@ -1,3 +1,4 @@
+import { api } from "./api.js";
 
 const loginForm = document.getElementById("loginForm");
 
@@ -13,16 +14,13 @@ loginForm.addEventListener("submit", async function (event) {
   }
 
   try {
-    const response = await fetch(
-      "https://verbumdei-management-system-vms.onrender.com/subadmin/login/",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ admin_id, password }),
-      }
-    );
+    const response = await fetch(`${api}/subadmin/login/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ admin_id, password }),
+    });
 
     if (response.ok) {
       const data = await response.json();

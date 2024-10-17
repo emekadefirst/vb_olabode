@@ -1,43 +1,39 @@
-
+import { api } from "./api.js";
 // Fetch class data
 document.addEventListener("DOMContentLoaded", function () {
-    const classSelect = document.getElementById("class");  // Update to correct ID
-    const token = localStorage.getItem("authToken");
+  const classSelect = document.getElementById("class"); // Update to correct ID
+  const token = localStorage.getItem("authToken");
 
-    async function fetchClass() {
-        try {
-            const response = await fetch(
-              "https://verbumdei-management-system-vms.onrender.com/class/classes/",
-              {
-                method: "GET",
-                headers: {
-                  "Content-Type": "application/json",
-                  Authorization: `Token ${token}`,
-                },
-              }
-            );
+  async function fetchClass() {
+    try {
+      const response = await fetch(`${api}/class/classes/`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${token}`,
+        },
+      });
 
-            if (response.ok) {
-                const data = await response.json();
-                data.forEach((grade) => {
-                    const option = document.createElement("option");
-                    option.value = grade.name;
-                    option.textContent = grade.name;
-                    classSelect.appendChild(option);  // Append to correct element
-                });
-            } else {
-                console.error("Failed to fetch class");
-            }
-        } catch (error) {
-            console.error("Error fetching class:", error);
-        }
+      if (response.ok) {
+        const data = await response.json();
+        data.forEach((grade) => {
+          const option = document.createElement("option");
+          option.value = grade.name;
+          option.textContent = grade.name;
+          classSelect.appendChild(option); // Append to correct element
+        });
+      } else {
+        console.error("Failed to fetch class");
+      }
+    } catch (error) {
+      console.error("Error fetching class:", error);
     }
+  }
 
-    fetchClass();
+  fetchClass();
 });
 
-
-// Fetch student 
+// Fetch student
 document.addEventListener("DOMContentLoaded", function () {
   const registrationIdInput = document.getElementById("registrationId");
   const studentDropdown = document.getElementById("studentDropdown");
@@ -47,16 +43,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   async function fetchStudents() {
     try {
-      const response = await fetch(
-        "https://verbumdei-management-system-vms.onrender.com/student/students/",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Token ${token}`,
-          },
-        }
-      );
+      const response = await fetch(`${api}/student/students/`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${token}`,
+        },
+      });
 
       if (response.ok) {
         students = await response.json(); // Store students globally
@@ -112,16 +105,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   async function fetchPaymentType() {
     try {
-      const response = await fetch(
-        "https://verbumdei-management-system-vms.onrender.com/payment/payment-types/",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            // Added space after Bearer
-          },
-        }
-      );
+      const response = await fetch(`${api}/payment/payment-types/`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          // Added space after Bearer
+        },
+      });
 
       if (response.ok) {
         const data = await response.json();

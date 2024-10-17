@@ -1,15 +1,14 @@
+import { api } from "./api.js";
+
 document.addEventListener("DOMContentLoaded", function () {
   const token = localStorage.getItem("authToken");
-  fetch(
-    "https://verbumdei-management-system-vms.onrender.com/student/students/",
-    {
-      method: "GET",
-      headers: {
-        Authorization: `Token ${token}`,
-        "Content-Type": "application/json",
-      },
-    }
-  )
+  fetch(`${api}/student/students/`, {
+    method: "GET",
+    headers: {
+      Authorization: `Token ${token}`,
+      "Content-Type": "application/json",
+    },
+  })
     .then((response) => response.json())
     .then((data) => {
       const tableBody = document.getElementById("student-table-body");
@@ -78,8 +77,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const urlParams = new URLSearchParams(window.location.search);
   const token = localStorage.getItem("authToken");
   const studentID = urlParams.get("studentID");
-  const studentApiUrl = `https://verbumdei-management-system-vms.onrender.com/student/student/${studentID}`;
-  const paymentApiUrl = `https://verbumdei-management-system-vms.onrender.com/payment/physical-payments/`;
+  const studentApiUrl = `${api}/student/student/${studentID}`;
+  const paymentApiUrl = `${api}/payment/physical-payments/`;
 
   if (studentID) {
     fetch(studentApiUrl, {

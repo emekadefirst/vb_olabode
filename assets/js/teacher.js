@@ -1,3 +1,4 @@
+import { api } from "./api.js";
 document.addEventListener("DOMContentLoaded", function () {
   const container = document.getElementById("imageUploadContainer");
   const fileInput = document.getElementById("fileInput");
@@ -54,7 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
 document
   .getElementById("staffRegistrationForm")
   .addEventListener("submit", async function (event) {
@@ -80,10 +80,7 @@ document
       "employment_type",
       document.getElementById("staff_type").value
     );
-    formData.append(
-      "staff_type",
-      document.getElementById("type").value
-    );
+    formData.append("staff_type", document.getElementById("type").value);
     formData.append("status", document.getElementById("status").value);
     formData.append("nin", document.getElementById("nin").value);
     formData.append("email", document.getElementById("email").value);
@@ -115,16 +112,13 @@ document
     );
 
     try {
-      const response = await fetch(
-        "https://verbumdei-management-system-vms.onrender.com/staff/staff/",
-        {
-          method: "POST",
-          body: formData,
-          headers: {
-            "X-CSRFToken": getCSRFToken(),
-          },
-        }
-      );
+      const response = await fetch(`${api}/staff/staff/`, {
+        method: "POST",
+        body: formData,
+        headers: {
+          "X-CSRFToken": getCSRFToken(),
+        },
+      });
 
       if (response.ok) {
         const data = await response.json();
@@ -161,7 +155,6 @@ document
       document.getElementById("uploadIcon").classList.remove("hidden"); // Show upload icon
     }
   });
-
 
 function getCSRFToken() {
   let csrfToken = null;

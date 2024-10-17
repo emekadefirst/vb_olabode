@@ -1,11 +1,9 @@
+import { api } from "./api.js";
 // Fetch and display existing payments
-fetch(
-  "https://verbumdei-management-system-vms.onrender.com/payment/physical-payments/",
-  {
-    method: "GET",
-    headers: {},
-  }
-)
+fetch(`${api}/payment/physical-payments/`, {
+  method: "GET",
+  headers: {},
+})
   .then((response) => {
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
@@ -62,4 +60,3 @@ fetch(
 
 // Call fetchPayments on window load
 window.onload = fetchPayments;
-

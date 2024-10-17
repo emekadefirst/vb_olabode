@@ -1,3 +1,5 @@
+import { api } from "./api.js";
+
 document
   .getElementById("add-payment")
   .addEventListener("submit", async function (event) {
@@ -21,7 +23,8 @@ document
     formData.append("amount_paid", document.getElementById("deposit").value); // Fixed the reference to the correct input
 
     const paymentMethod = document.getElementById("payment_method").value;
-    const transactionNumberInput = document.getElementById("transaction_number");
+    const transactionNumberInput =
+      document.getElementById("transaction_number");
 
     if (paymentMethod === "POS" || paymentMethod === "TRANSFER") {
       transactionNumberInput.setAttribute("required", "true");
@@ -33,16 +36,13 @@ document
     }
 
     try {
-      const response = await fetch(
-        "https://verbumdei-management-system-vms.onrender.com/payment/physical-payments/",
-        {
-          method: "POST",
-          body: formData,
-          headers: {
-            Authorization: `Token ${token}`,
-          },
-        }
-      );
+      const response = await fetch(`${api}/payment/physical-payments/`, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      });
 
       if (response.ok) {
         const data = await response.json();
@@ -62,16 +62,19 @@ document
   });
 
 // Toggle the transaction number input based on payment method selection
-document.getElementById("payment_method").addEventListener("change", function () {
-  const transactionNumberInput = document.getElementById("transaction_number");
-  if (this.value === "POS" || this.value === "TRANSFER") {
-    transactionNumberInput.style.display = "block";
-    transactionNumberInput.setAttribute("required", "true");
-  } else {
-    transactionNumberInput.style.display = "none";
-    transactionNumberInput.removeAttribute("required");
-  }
-});
+document
+  .getElementById("payment_method")
+  .addEventListener("change", function () {
+    const transactionNumberInput =
+      document.getElementById("transaction_number");
+    if (this.value === "POS" || this.value === "TRANSFER") {
+      transactionNumberInput.style.display = "block";
+      transactionNumberInput.setAttribute("required", "true");
+    } else {
+      transactionNumberInput.style.display = "none";
+      transactionNumberInput.removeAttribute("required");
+    }
+  });
 
 // Log the current amount value on input change
 document.getElementById("amount_paid").addEventListener("input", function () {

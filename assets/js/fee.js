@@ -20,4 +20,3 @@ function toggleTransactionInput() {
 }
 
 // Submit event listener for the payment creation form
-

@@ -1,19 +1,18 @@
+import { api } from "./api.js";
+
 const token = localStorage.getItem("authToken");
 document.addEventListener("DOMContentLoaded", function () {
   const parentSelect = document.getElementById("teacher");
 
   async function fetchTeacher() {
     try {
-      const response = await fetch(
-        "https://verbumdei-management-system-vms.onrender.com/staff/staff",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Token ${token}`,
-          },
-        }
-      );
+      const response = await fetch(`${api}/staff/staff`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${token}`,
+        },
+      });
 
       if (response.ok) {
         const data = await response.json();
@@ -54,16 +53,13 @@ document
     formData.append("teacher", teacherName);
 
     try {
-      const response = await fetch(
-        "https://verbumdei-management-system-vms.onrender.com/class/classes/",
-        {
-          method: "POST",
-          body: formData,
-          headers: {
-            Authorization: `Token ${token}`,
-          },
-        }
-      );
+      const response = await fetch(`${api}/class/classes/`, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      });
 
       if (response.ok) {
         const data = await response.json();
@@ -100,14 +96,11 @@ document
     formData.append("teacher", document.getElementById("teacher").value);
 
     try {
-      const response = await fetch(
-        "https://verbumdei-management-system-vms.onrender.com/class/subjects/",
-        {
-          method: "POST",
-          body: formData,
-          headers: {},
-        }
-      );
+      const response = await fetch(`${api}/class/subjects/`, {
+        method: "POST",
+        body: formData,
+        headers: {},
+      });
 
       if (response.ok) {
         const data = await response.json();

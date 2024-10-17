@@ -1,8 +1,7 @@
+import { api } from "./api.js";
 async function fetchPaymentData() {
   try {
-    const response = await fetch(
-      "https://verbumdei-management-system-vms.onrender.com/payment/physical-payments/"
-    );
+    const response = await fetch(`${api}/payment/physical-payments/`);
     return await response.json();
   } catch (error) {
     console.error("Error fetching payment data:", error);
