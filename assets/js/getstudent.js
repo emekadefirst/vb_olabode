@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const token = localStorage.getItem("authToken");
   const studentID = urlParams.get("studentID");
   const studentApiUrl = `${api}/student/student/${studentID}`;
-  const paymentApiUrl = `${api}/payment/physical-payments/`;
+  const paymentApiUrl = `${api}/payment/student-payment/`;
 
   if (studentID) {
     fetch(studentApiUrl, {
@@ -91,6 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((response) => response.json())
       .then((student) => {
         renderStudentDetails(student);
+        // Fetch payment history using the student's registration_id
         fetchPaymentHistory(student.registration_id);
       })
       .catch((error) =>
@@ -117,7 +118,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function fetchPaymentHistory(registrationID) {
-    fetch(`${paymentApiUrl}?registration_id=${registrationID}`, {
+    if (!registrationID) {
+      console.error("Registration ID is missing.");
+      return;
+    }
+
+    fetch(`${paymentApiUrl}${registrationID}/`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -137,18 +143,32 @@ document.addEventListener("DOMContentLoaded", function () {
     const paymentHistoryTable = document.getElementById(
       "payment-history-table-body"
     );
-    payments.forEach((payment) => {
-      const row = `
-                <tr>
-                    <td>${new Date(payment.date).toLocaleDateString()}</td>
-                    <td>${payment.amount}</td>
-                    <td class="${getStatusClass(payment.status)}">${
-        payment.status
-      }</td>
-                </tr>
-            `;
-      paymentHistoryTable.innerHTML += row;
-    });
+
+    if (!paymentHistoryTable) {
+      console.error("Payment history table body element not found.");
+      return;
+    }
+
+    paymentHistoryTable.innerHTML = ""; // Clear the table before adding new rows
+
+    if (payments.length === 0) {
+      const row = `<tr><td colspan="5">No payment history found</td></tr>`;
+      paymentHistoryTable.innerHTML = row;
+    } else {
+      payments.forEach((payment) => {
+          const row = `
+            <tr>
+              <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-700">${payment.payment_id}</td>
+              <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-700">${new Date(payment.time).toLocaleDateString()}</td>
+              <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-700">${payment.amount_paid}</td>
+              <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-700">${payment.balance}</td>
+              <td class="px-4 py-2 whitespace-nowrap text-sm ${getStatusClass(payment.status)}">${payment.status}</td>
+            </tr>
+          `;
+
+        paymentHistoryTable.innerHTML += row;
+      });
+    }
   }
 
   function getStatusClass(status) {
