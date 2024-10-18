@@ -1,4 +1,5 @@
 import { api } from "./api.js";
+const token = localStorage.getItem("authToken");
 
 document.addEventListener("DOMContentLoaded", function () {
   const container = document.getElementById("imageUploadContainer");
@@ -9,8 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to handle file selection
   function handleFileSelect(file) {
     if (file && file.type.startsWith("image/")) {
-      if (file.size <= 2 * 1024 * 1024) {
-        // 2MB limit
+      if (file.size <= 10 * 1024 * 1024) {
+        // 10MB limit
         const reader = new FileReader();
         reader.onload = function (e) {
           imagePreview.src = e.target.result;
@@ -63,7 +64,7 @@ document
     const token = localStorage.getItem("authToken");
 
     const fileInput = document.getElementById("fileInput").files[0];
-    if (fileInput && fileInput.size > 2 * 1024 * 1024) {
+    if (fileInput && fileInput.size > 10 * 1024 * 1024) {
       alert("Profile photo must be less than 2MB.");
       return;
     }

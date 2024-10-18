@@ -1,4 +1,5 @@
 import { api } from "./api.js";
+const token = localStorage.getItem("authToken");
 
 document
   .getElementById("add-payment")
@@ -37,6 +38,7 @@ document
         body: formData,
         headers: {
           Authorization: `Token ${token}`,
+          "Content-Type": "application/json",
         },
       });
 

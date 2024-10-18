@@ -1,7 +1,13 @@
 import { api } from "./api.js";
+const token = localStorage.getItem("authToken");
 async function fetchPaymentData() {
   try {
-    const response = await fetch(`${api}/payment/physical-payments/`);
+    const response = await fetch(`${api}/payment/physical-payments/` {
+      headers : {
+      Authorization: `Token ${token}`,
+      "Content-Type": "application/json",
+      }
+    });
     return await response.json();
   } catch (error) {
     console.error("Error fetching payment data:", error);

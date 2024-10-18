@@ -1,4 +1,5 @@
 import { api } from "./api.js";
+const token = localStorage.getItem("authToken");
 
 document
   .getElementById("payment-creation")
@@ -6,7 +7,7 @@ document
     event.preventDefault();
     console.log("Form submitted!");
 
-    const token = localStorage.getItem("authToken");
+    
 
     const formData = new FormData();
     formData.append("payment_name",document.getElementById("payment_name").value);
@@ -19,6 +20,7 @@ document
         method: "POST",
         body: formData,
         headers: {
+          "Content-Type": "application/json",
           Authorization: `Token ${token}`,
         },
       });

@@ -1,8 +1,13 @@
 import { api } from "./api.js";
+
+const token = localStorage.getItem("authToken");
 // Fetch and display existing payments
 fetch(`${api}/payment/physical-payments/`, {
   method: "GET",
-  headers: {},
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Token ${token}`,
+  },
 })
   .then((response) => {
     if (!response.ok) {

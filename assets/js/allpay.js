@@ -1,4 +1,5 @@
 import { api } from "./api.js";
+const token = localStorage.getItem("authToken");
 
 document.addEventListener("DOMContentLoaded", function () {
   const termSelect = document.getElementById("term");
@@ -9,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Token ${token}`,
         },
       });
 
@@ -47,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Token ${token}`,
         },
       });
 

@@ -1,4 +1,6 @@
 import { api } from "./api.js";
+
+const token = localStorage.getItem("authToken");
 // Fetch class data
 document.addEventListener("DOMContentLoaded", function () {
   const classSelect = document.getElementById("class"); // Update to correct ID
@@ -109,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          // Added space after Bearer
+          Authorization: `Token ${token}`,
         },
       });
 

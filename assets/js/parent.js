@@ -1,5 +1,8 @@
 import { api } from "./api.js";
 
+
+const token = localStorage.getItem("authToken");
+
 document.getElementById("parentForm").addEventListener("submit", function (e) {
   e.preventDefault();
   const form = this;
@@ -10,6 +13,7 @@ document.getElementById("parentForm").addEventListener("submit", function (e) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Token ${token}`,
     },
     body: JSON.stringify(data),
   })

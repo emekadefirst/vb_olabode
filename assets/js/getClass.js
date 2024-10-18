@@ -1,4 +1,6 @@
 import { api } from "./api.js";
+
+const token = localStorage.getItem("authToken");
 document.addEventListener("DOMContentLoaded", function () {
   const viewTeacherDetailsLink = document.getElementById(
     "view-teacher-details"
@@ -146,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
       actionLink.classList.add("text-blue-600", "hover:underline");
       actionLink.textContent = "View Profile";
       actionCell.appendChild(actionLink);
-      row.appendChild(actionCell);
+      row.appendChild(performanceCell);
 
       tbody.appendChild(row);
     });

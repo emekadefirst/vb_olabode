@@ -1,4 +1,6 @@
 import { api } from "./api.js";
+const token = localStorage.getItem("authToken");
+
 document.addEventListener("DOMContentLoaded", function () {
   const container = document.getElementById("imageUploadContainer");
   const fileInput = document.getElementById("fileInput");

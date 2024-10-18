@@ -32,16 +32,13 @@ if (fullname && fullnameElement) {
 // Fetch total number of students
 async function fetchStudentCount() {
   try {
-    const StudentCount = await fetch(
-      `${api}/student/student-count/`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Token ${token}`,
-        },
-      }
-    );
+    const StudentCount = await fetch(`${api}/student/student-count/`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${token}`,
+      },
+    });
 
     if (StudentCount.ok) {
       const studentCountData = await StudentCount.json();

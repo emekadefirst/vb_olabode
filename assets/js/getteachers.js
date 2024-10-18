@@ -1,20 +1,32 @@
 
 import { api } from "./api.js";
-    document.addEventListener("DOMContentLoaded", function () {
-            fetch(
-              `${api}/staff/staff/`
-            )
-              .then((response) => response.json())
-              .then((data) => {
-                const tableBody = document.getElementById("teacher-frame");
 
-                if (data.length === 0) {
-                  console.log("No staff members found.");
-                  return;
-                }
+const token = localStorage.getItem("authToken");
+document.addEventListener("DOMContentLoaded", function () {
+  fetch(`${api}/staff/staff/`, {
+    method: "GET",
+    headers: {
+      Authorization: `Token ${token}`,
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => {
+      // Check if the response is okay (status in the range 200-299)
+      if (!response.ok) {
+        throw new Error("Network response was not ok: " + response.statusText);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const tableBody = document.getElementById("teacher-frame");
 
-                data.forEach((staff) => {
-                  const row = `
+      if (data.length === 0) {
+        console.log("No staff members found.");
+        return;
+      }
+
+      data.forEach((staff) => {
+        const row = `
                 <div class="bg-white px-3 py-5 rounded-lg text-center">
                     <div class="flex items-center justify-between">
                         <span class="p-2 bg-green-500 rounded-full"></span>
@@ -42,17 +54,16 @@ import { api } from "./api.js";
                             <i class="fa fa-envelope bg-blue-600 text-white px-3 py-3 rounded-full"></i>
                         </a>
                     </div>
-
-
                 </div>
             `;
-                  tableBody.innerHTML += row;
-                });
-              })
-              .catch((error) => {
-                console.error("Error fetching staff data:", error);
-              });
-        });
+        tableBody.innerHTML += row; // Append the new row to the table body
+      });
+    })
+    .catch((error) => {
+      console.error("Error fetching staff data:", error);
+    });
+});
+
 
     // Function to copy the staff_id to clipboard
     function copyToClipboard(text) {

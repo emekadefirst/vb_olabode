@@ -1,5 +1,7 @@
 import { api } from "./api.js";
 
+const token = localStorage.getItem("authToken");
+
 document.addEventListener("DOMContentLoaded", function () {
   const token = localStorage.getItem("authToken");
   fetch(`${api}/student/students/`, {
