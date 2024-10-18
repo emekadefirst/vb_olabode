@@ -7,10 +7,6 @@ document
     console.log("Form submitted!");
 
     const token = localStorage.getItem("authToken");
-    const amountInput = document.getElementById("amount_paid");
-    const amountPaid = amountInput.value;
-
-    console.log("Amount paid:", amountPaid, "Type:", typeof amountPaid); // Log amount and its type
 
     const formData = new FormData();
     formData.append(
@@ -18,7 +14,7 @@ document
       document.getElementById("payment-type").value
     );
     formData.append("student", document.getElementById("registrationId").value);
-    formData.append("term", document.getElementById("term-add").value);
+    formData.append("term", document.getElementById("term-m").value);
     formData.append("method", document.getElementById("payment_method").value);
     formData.append("amount_paid", document.getElementById("deposit").value); // Fixed the reference to the correct input
 
@@ -65,18 +61,16 @@ document
 document
   .getElementById("payment_method")
   .addEventListener("change", function () {
+    const transactionInputDiv = document.getElementById("transaction-input");
     const transactionNumberInput =
       document.getElementById("transaction_number");
+
     if (this.value === "POS" || this.value === "TRANSFER") {
-      transactionNumberInput.style.display = "block";
+      transactionInputDiv.style.display = "block";
       transactionNumberInput.setAttribute("required", "true");
     } else {
-      transactionNumberInput.style.display = "none";
+      transactionInputDiv.style.display = "none";
       transactionNumberInput.removeAttribute("required");
     }
   });
 
-// Log the current amount value on input change
-document.getElementById("amount_paid").addEventListener("input", function () {
-  console.log("Current amount value:", this.value);
-});

@@ -25,10 +25,11 @@
         border-top: 1px solid #ccc;
 
     }
+
     .current-day {
-    color: rgb(7, 142, 187); 
-    font-weight: bold;
-}
+        color: rgb(7, 142, 187);
+        font-weight: bold;
+    }
 
 
     .calendar-grid div {
@@ -121,15 +122,10 @@
                                 <p class="text-sm font-medium text-gray-800 dark:text-neutral-200"></p>
                             </div>
                             <div class="p-1.5 space-y-0.5">
-                                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                <a id="logout"
+                                    class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
                                     href="#">
-                                    <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
-                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
-                                        <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
-                                    </svg>
-                                    Newsletter
+                                    Logout
                                 </a>
                             </div>
                         </div>
@@ -447,7 +443,8 @@
                             class="border border-gray-300 rounded-lg mt-8 p-3 bg-white block overflow-y-scroll [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300">
                             <div class="flex items-center justify-between">
                                 <h3 class="font-semibold text-lg">Upcoming events</h3>
-                                <a href="events.html" class="font-medium text-xs cursor-pointer text-blue-700 underline">See more</a>
+                                <a href="events.html"
+                                    class="font-medium text-xs cursor-pointer text-blue-700 underline">See more</a>
                             </div>
 
                             <div class="flex items-center space-x-3 mt-4">
@@ -505,6 +502,7 @@
         <script type="module" src="assets/js/index.js"></script>
         <script type="module" src="assets/js/index2.js"></script>
         <script type="module" src="assets/js/dashboard.js"></script>
+        <script src="assets/js/logout.js"></script>
 </body>
 
 </html>

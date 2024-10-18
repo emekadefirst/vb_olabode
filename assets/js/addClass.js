@@ -86,32 +86,3 @@ document
     }
   });
 
-document
-  .getElementById("subject-creation")
-  .addEventListener("submit", async function (event) {
-    event.preventDefault();
-
-    const formData = new FormData();
-    formData.append("name", document.getElementById("name").value);
-    formData.append("teacher", document.getElementById("teacher").value);
-
-    try {
-      const response = await fetch(`${api}/class/subjects/`, {
-        method: "POST",
-        body: formData,
-        headers: {},
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        alert("Subject ecreated successfully!");
-        document.getElementById("class-creation").reset();
-      } else {
-        const errorData = await response.json();
-        alert("Failed to Create subject");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      alert("An error occurred. Please try again later.");
-    }
-  });

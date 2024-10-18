@@ -1,22 +1,39 @@
-const modal = document.getElementById("class-creation-modal");
-const closeModalBtn = document.getElementById("close-modal");
+import { api } from "./api.js";
 
-closeModalBtn.addEventListener("click", function () {
-  modal.classList.add("hidden");
-});
+document.addEventListener("DOMContentLoaded", function () {
+  const termSelect = document.getElementById("term-m");
 
-// Fetch payment type
-// Function to toggle transaction input visibility based on selected payment method
-function toggleTransactionInput() {
-  const paymentMethod = document.getElementById("payment_method").value;
-  const transactionInput = document.getElementById("transaction-input");
+  async function fetchTerm() {
+    try {
+      const response = await fetch(`${api}/term/all/`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-  if (paymentMethod === "POS" || paymentMethod === "TRANSFER") {
-    transactionInput.style.display = "block";
-  } else {
-    transactionInput.style.display = "none";
-    document.getElementById("transaction_number").value = ""; // Clear transaction number
+      if (response.ok) {
+        const data = await response.json();
+
+        // Ensure data is not empty and is the expected format
+        if (Array.isArray(data) && data.length > 0) {
+          data.forEach((term) => {
+            const option = document.createElement("option");
+            option.value = term.name;
+            option.textContent = term.name;
+            termSelect.appendChild(option);
+          });
+        } else {
+          console.error("No terms found or invalid data format.");
+        }
+      } else {
+        const errorMsg = await response.text();
+        console.error("Failed to fetch terms:", errorMsg);
+      }
+    } catch (error) {
+      console.error("Error fetching terms:", error);
+    }
   }
-}
 
-// Submit event listener for the payment creation form
+  fetchTerm();
+});

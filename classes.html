@@ -80,7 +80,7 @@
                             aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
                             <img class="shrink-0 size-[38px] rounded-full" src="" alt="Avatar">
                         </button>
-                    
+
                         <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg mt-2 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
                             role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-account">
                             <div class="py-3 px-5 bg-gray-100 rounded-t-lg dark:bg-neutral-700">
@@ -88,15 +88,10 @@
                                 <p class="text-sm font-medium text-gray-800 dark:text-neutral-200"></p>
                             </div>
                             <div class="p-1.5 space-y-0.5">
-                                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                <a id="logout"
+                                    class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
                                     href="#">
-                                    <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
-                                        <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
-                                    </svg>
-                                    Newsletter
+                                    Logout
                                 </a>
                             </div>
                         </div>
@@ -121,7 +116,7 @@
                         <path d="m8 9 3 3-3 3" />
                     </svg>
                 </button>
-        
+
 
                 <!-- Breadcrumb -->
                 <ol class="ms-3 flex items-center whitespace-nowrap">
@@ -170,14 +165,15 @@
                 </a>
                 <!-- End Logo -->
             </div>
-    
+
             <!-- Content -->
             <div
                 class="h-full flex flex-col justify-between overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300">
                 <div>
-    
+
                     <!-- Nav Links -->
-                    <nav class="hs-accordion-group p-3 py-10 w-full flex flex-col flex-wrap" data-hs-accordion-always-open>
+                    <nav class="hs-accordion-group p-3 py-10 w-full flex flex-col flex-wrap"
+                        data-hs-accordion-always-open>
                         <ul class="flex flex-col space-y-2">
                             <li>
                                 <a class="flex items-center gap-x-3.5 font-medium py-2 px-2.5 text-sm text-white rounded-lg bg-[#007BFF] focus:outline-none focus:bg-gray-100"
@@ -186,7 +182,7 @@
                                     <span>Home</span>
                                 </a>
                             </li>
-    
+
                             <li>
                                 <a class="flex items-center gap-x-3.5 py-2 font-medium px-2.5 hover:bg-gray-100 text-sm text-gray-500 rounded-lg focus:outline-none"
                                     href="students.html">
@@ -194,7 +190,7 @@
                                     <span>Student Management</span>
                                 </a>
                             </li>
-    
+
                             <li>
                                 <a class="w-full flex items-center gap-x-3.5 py-2 font-medium px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
                                     href="teachers.html">
@@ -202,7 +198,7 @@
                                     Teacher Management
                                 </a>
                             </li>
-    
+
                             <li>
                                 <a class="w-full flex items-center gap-x-3.5 py-2 font-medium px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
                                     href="fees.html">
@@ -210,7 +206,7 @@
                                     Fees and Payments
                                 </a>
                             </li>
-    
+
                             <li>
                                 <a class="w-full flex items-center gap-x-3.5 py-2 font-medium px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
                                     href="classes.html">
@@ -218,7 +214,7 @@
                                     Class and Exam
                                 </a>
                             </li>
-    
+
                             <li>
                                 <a class="w-full flex items-center gap-x-3.5 py-2 font-medium px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
                                     href="library.html">
@@ -226,7 +222,7 @@
                                     Library Management
                                 </a>
                             </li>
-    
+
                             <li>
                                 <a class="w-full flex items-center gap-x-3.5 py-2 font-medium px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
                                     href="inventory.html">
@@ -234,7 +230,7 @@
                                     Inventory Management
                                 </a>
                             </li>
-    
+
                             <li>
                                 <a class="w-full flex items-center gap-x-3.5 py-2 font-medium px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
                                     href="events.html">
@@ -245,9 +241,9 @@
                         </ul>
                     </nav>
                 </div>
-    
+
                 <div class="mt-6">
-    
+
                     <hr class="mb-2" />
 
                 </div>
@@ -258,112 +254,190 @@
     <!-- End Sidebar -->
 
     <!-- Content -->
-<div class="w-full lg:ps-64">
-    <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
-        <!-- your content goes here ... -->
-        <div class="grid gap-4 grid-cols-2 md:grid-cols-[1fr,1fr,1fr,10rem] items-end">
-            <div class="flex flex-col">
-                <label class="text-sm font-medium mb-1">Select class</label>
-                <select id="class" name="class" required
-                    class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
-                    <option value="">Select class</option>
-                    <!-- Options will be populated here -->
-                </select>
-            </div>
-            <a href="create-class.html" type="button"
-                class="text-center text-sm px-3 py-2 rounded-md border border-blue-600 bg-blue-600 hover:bg-blue-700 hover:border-blue-700 duration-300">
-                <span class="font-medium text-white text-sm">Create class</span>
-            </a>
-            <a href="create-class.html" type="button"
-                class="text-center text-sm px-3 py-2 rounded-md border border-blue-600 bg-blue-600 hover:bg-blue-700 hover:border-blue-700 duration-300">
-                <span class="font-medium text-white text-sm">Add student to class</span>
-            </a>
-        </div>
-
-        <div class="grid gap-4 grid-cols-1 md:grid-cols-3 items-start">
-            <div class="col-span-2 bg-white">
+    <div class="w-full lg:ps-64">
+        <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
+            <!-- your content goes here ... -->
+            <div class="grid gap-4 grid-cols-2 md:grid-cols-[1fr,1fr,1fr,10rem] items-end">
                 <div class="flex flex-col">
-                    <div class="-m-1.5 overflow-x-auto">
-                        <div class="p-1.5 min-w-full inline-block align-middle">
-                            <div class="border rounded-lg overflow-hidden">
-                                <table class="min-w-full divide-y divide-gray-200">
-                                    <thead class="bg-gray-50">
-                                        <tr>
-                                            <th scope="col" class="py-3 ps-4">
-                                                <div class="flex items-center h-5">
-                                                    <input id="hs-table-checkbox-all" type="checkbox"
-                                                        class="border-gray-200 rounded text-blue-600 focus:ring-blue-500">
-                                                    <label for="hs-table-checkbox-all" class="sr-only">Checkbox</label>
-                                                </div>
-                                            </th>
-                                            <th scope="col"
-                                                class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
-                                                Profile image</th>
-                                            <th scope="col"
-                                                class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
-                                                Fullname</th>
-                                            <th scope="col"
-                                                class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
-                                                Student ID
-                                            </th>
-                                            <th scope="col"
-                                                class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">
-                                                Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="divide-y divide-gray-200">
-                                    </tbody>
-                                </table>
+                    <label class="text-sm font-medium mb-1">Select class</label>
+                    <select id="class" name="class" required
+                        class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+                        <option value="">Select class</option>
+                        <!-- Options will be populated here -->
+                    </select>
+                </div>
+                <a href="create-class.html" type="button"
+                    class="text-center text-sm px-3 py-2 rounded-md border border-blue-600 bg-blue-600 hover:bg-blue-700 hover:border-blue-700 duration-300">
+                    <span class="font-medium text-white text-sm">Create class</span>
+                </a>
+                <a href="#" type="button"
+                    class="text-center text-sm px-3 py-2 rounded-md border border-blue-600 bg-blue-600 hover:bg-blue-700 hover:border-blue-700 duration-300"
+                    onclick="openModal('classModal')">
+                    <span class="font-medium text-white text-sm">Add student to class</span>
+                </a>
+            </div>
+
+            <div class="grid gap-4 grid-cols-1 md:grid-cols-3 items-start">
+                <div class="col-span-2 bg-white">
+                    <div class="flex flex-col">
+                        <div class="-m-1.5 overflow-x-auto">
+                            <div class="p-1.5 min-w-full inline-block align-middle">
+                                <div class="border rounded-lg overflow-hidden">
+                                    <table class="min-w-full divide-y divide-gray-200">
+                                        <thead class="bg-gray-50">
+                                            <tr>
+                                                <th scope="col" class="py-3 ps-4">
+                                                    <div class="flex items-center h-5">
+                                                        <input id="hs-table-checkbox-all" type="checkbox"
+                                                            class="border-gray-200 rounded text-blue-600 focus:ring-blue-500">
+                                                        <label for="hs-table-checkbox-all"
+                                                            class="sr-only">Checkbox</label>
+                                                    </div>
+                                                </th>
+                                                <th scope="col"
+                                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
+                                                    Profile image</th>
+                                                <th scope="col"
+                                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
+                                                    Fullname</th>
+                                                <th scope="col"
+                                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
+                                                    Student ID
+                                                </th>
+                                                <th scope="col"
+                                                    class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">
+                                                    Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-gray-200">
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div id="teacher-container" class="space-y-4" style="display: none;"> <!-- Set to display none initially -->
-                <div class="border border-gray-300 rounded-lg bg-white px-3 py-4">
-                    <div class="flex items-center justify-between">
-                        <h3 class="font-semibold text-lg">Teacher assigned</h3>
+                <div id="teacher-container" class="space-y-4" style="display: none;">
+                    <!-- Set to display none initially -->
+                    <div class="border border-gray-300 rounded-lg bg-white px-3 py-4">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-semibold text-lg">Teacher assigned</h3>
 
-                        <div class="hs-dropdown relative">
-                            <button id="hs-dropdown-default" class="focus:outline-none">
-                                <img src="assets/images/dots.svg" alt="dots" class="w-5 h-5" />
-                            </button>
+                            <div class="hs-dropdown relative">
+                                <button id="hs-dropdown-default" class="focus:outline-none">
+                                    <img src="assets/images/dots.svg" alt="dots" class="w-5 h-5" />
+                                </button>
 
-                            <!-- Dropdown Menu -->
-                            <div id="dropdownMenu"
-                                class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-56 hidden z-10 mt-2 min-w-60 bg-white shadow-md rounded-lg p-2">
-                                <a href="#"
-                                    class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:text-white hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Transfer</a>
-                                <a href="#"
-                                    class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:text-white hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Assign
-                                    New Teacher</a>
+                                <!-- Dropdown Menu -->
+                                <div id="dropdownMenu"
+                                    class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-56 hidden z-10 mt-2 min-w-60 bg-white shadow-md rounded-lg p-2">
+                                    <a href="#"
+                                        class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:text-white hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Transfer</a>
+                                    <a href="#"
+                                        class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:text-white hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Assign
+                                        New Teacher</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="mt-4 text-center">
-                        <img src="assets/images/teacher-pfp.png" alt="teacher"
-                            class="w-[40%] mx-auto teacher-profile-image">
+                        <div class="mt-4 text-center">
+                            <img src="assets/images/teacher-pfp.png" alt="teacher"
+                                class="w-[40%] mx-auto teacher-profile-image">
 
-                        <h2 class="text-xl font-bold mt-2 teacher-name">Teacher Name</h2>
-    
-                        <div class="flex items-center justify-center space-x-2 cursor-pointer mt-1">
-                            <p class="text-gray-800 font-medium text-xs teacher-id">Teacher ID</p>
+                            <h2 class="text-xl font-bold mt-2 teacher-name">Teacher Name</h2>
+
+                            <div class="flex items-center justify-center space-x-2 cursor-pointer mt-1">
+                                <p class="text-gray-800 font-medium text-xs teacher-id">Teacher ID</p>
+                            </div>
+
+                            <a id="view-teacher-details" href="#"
+                                class="mt-4 block font-semibold underline text-blue-600 text-xs">View teacher's
+                                details</a>
                         </div>
-
-                        <a id="view-teacher-details" href="#" class="mt-4 block font-semibold underline text-blue-600 text-xs">View teacher's
-                            details</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<script type="module" src="assets/js/getClass.js"></script>
-<script type="module" src="assets/js/dashboard.js"></script>
-<script type="module" src="assets/js/index.js"></script>
-<script type="module" src="assets/js/auth.js"></script>
+    <!-- Modal Background -->
+    <div id="classModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 hidden flex items-center justify-center z-50">
+        <div
+            class="formbox bg-white border border-gray-300 rounded-lg px-3 py-8 w-[95%] md:w-[55%] lg:w-[45%] mx-auto relative">
+            <!-- Close Button -->
+            <button onclick="closeModal('classModal')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                <i class="fa fa-times"></i>
+            </button>
+
+            <h3 class="font-semibold text-lg text-center">Add Student(s) to class</h3>
+            <form id="class-creation">
+                <div id="first-form">
+                    <div class="space-y-4">
+                        <div class="max-w-sm mx-auto space-y-3">
+                            <div>
+                                <label for="hs-leading-icon" class="block text-sm font-medium mb-2">Select class</label>
+                                <div class="relative">
+                                    <select type="text" id="class-add"
+                                        class="py-3 px-4 ps-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+                                        <option>Select class</option>
+                                    </select>
+                                    <div
+                                        class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
+                                        <i class="fa fa-user text-gray-300"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="registrationId" class="block text-sm font-medium mb-2 text-left">Search
+                                        by Registration ID</label>
+                                    <input type="text" id="registrationId"
+                                        class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500"
+                                        placeholder="Enter Registration ID" autocomplete="off" />
+
+                                    <div class="relative">
+                                        <div id="studentDropdown"
+                                            class="absolute z-10 hidden w-full border border-gray-200 bg-white rounded-lg shadow-lg mt-1 max-h-60 overflow-auto">
+                                            <ul id="studentList" class="max-h-48 overflow-y-auto">
+                                                <!-- Student options will be dynamically inserted here -->
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <!-- Section to display selected students -->
+                                    <div id="selectedStudents" class="mt-4">
+                                        <h4 class="text-sm font-medium">Selected Students:</h4>
+                                        <ul id="selectedStudentList" class="list-none mt-2">
+                                            <!-- Selected students will be shown here -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="max-w-sm mx-auto mt-6">
+                        <button type="submit"
+                            class="w-full px-3 py-3 bg-blue-600 hover:bg-blue-700 duration-200 text-sm font-medium text-white rounded-lg">Create</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="assets/js/getClass.js"></script>
+    <script type="module" src="assets/js/dashboard.js"></script>
+    <script type="module" src="assets/js/index.js"></script>
+    <script type="module" src="assets/js/auth.js"></script>
+    <script type="module" src="assets/js/addtoclass.js"></script>
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+    </script>
+    <script src="assets/js/logout.js"></script>
 </body>
 
 </html>

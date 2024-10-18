@@ -1,4 +1,5 @@
-import api from "./api.js";
+import { api } from "./api.js";
+
 document.addEventListener("DOMContentLoaded", function () {
   const termSelect = document.getElementById("term");
 
@@ -36,8 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   fetchTerm();
 });
-
-import { api } from "./api.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   const termSelect = document.getElementById("term-add");
