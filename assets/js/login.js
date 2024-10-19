@@ -1,6 +1,8 @@
 import { api } from "./api.js";
 
 const loginForm = document.getElementById("loginForm");
+const loginButton = document.getElementById("loginButton");
+const loginSuccessAlert = document.getElementById("loginSuccessAlert");
 
 loginForm.addEventListener("submit", async function (event) {
   event.preventDefault();
@@ -12,6 +14,15 @@ loginForm.addEventListener("submit", async function (event) {
     alert("Please fill in all fields");
     return;
   }
+
+  // Change button text to spinner
+  loginButton.innerHTML = `
+    <svg class="animate-spin h-5 w-5 text-white mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 019.293-7.293 1 1 0 01.707 1.707A6 6 0 106 12H4z"></path>
+    </svg>
+  `;
+  loginButton.disabled = true; // Disable button during loading
 
   try {
     const response = await fetch(`${api}/subadmin/login/`, {
@@ -31,13 +42,23 @@ loginForm.addEventListener("submit", async function (event) {
       localStorage.setItem("first_name", data.user.first_name);
       localStorage.setItem("last_name", data.user.last_name);
       localStorage.setItem("profile_image", data.user.profile_image);
-      alert("Login successful!");
-      window.location.href = "dashboard.html";
+
+      // Show Preline success alert
+      loginSuccessAlert.classList.remove("hidden");
+
+      // Redirect after a short delay
+      setTimeout(() => {
+        window.location.href = "dashboard.html";
+      }, 2000);
     } else {
       alert("Login failed. Please check your credentials.");
     }
   } catch (error) {
     console.error("Error:", error);
     alert("An error occurred. Please try again later.");
+  } finally {
+    // Restore button text and state
+    loginButton.innerHTML = "Login";
+    loginButton.disabled = false;
   }
 });

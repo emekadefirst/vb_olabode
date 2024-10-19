@@ -8,13 +8,14 @@
     <title>Fee and Payment || Verbum</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/images/logo-icon.png">
+    <link rel="shortcut icon" href="assets/images/fav.png">
 
     <!-- CSS HS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
 <style>
     .table-wrapper {
@@ -192,63 +193,63 @@
                         data-hs-accordion-always-open>
                         <ul class="flex flex-col space-y-2">
                             <li>
-                                <a class="flex items-center gap-x-3.5 font-medium py-2 px-2.5 text-sm text-white rounded-lg bg-[#007BFF] focus:outline-none focus:bg-gray-100"
+                                <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
                                     href="dashboard.html">
-                                    <i class="fa fa-home text-white"></i>
+                                    <i class="fa fa-home text-gray-500"></i>
                                     <span>Home</span>
                                 </a>
                             </li>
-
+                        
                             <li>
-                                <a class="flex items-center gap-x-3.5 py-2 font-medium px-2.5 hover:bg-gray-100 text-sm text-gray-500 rounded-lg focus:outline-none"
+                                <a class="flex items-center gap-x-3.5 py-2 px-2.5 hover:bg-gray-100 text-sm text-gray-800 rounded-lg focus:outline-none"
                                     href="students.html">
                                     <i class="fa fa-graduation-cap text-gray-500"></i>
                                     <span>Student Management</span>
                                 </a>
                             </li>
-
+                        
                             <li>
-                                <a class="w-full flex items-center gap-x-3.5 py-2 font-medium px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+                                <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
                                     href="teachers.html">
                                     <i class="fa fa-chalkboard-user text-gray-500"></i>
-                                    Teacher Management
+                                    Teachers Management
                                 </a>
                             </li>
-
+                        
                             <li>
-                                <a class="w-full flex items-center gap-x-3.5 py-2 font-medium px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+                                <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg bg-blue-600"
                                     href="fees.html">
-                                    <i class="fa fa-money-bill text-gray-500"></i>
+                                    <i class="fa fa-money-bill text-white"></i>
                                     Fees and Payments
                                 </a>
                             </li>
-
+                        
                             <li>
-                                <a class="w-full flex items-center gap-x-3.5 py-2 font-medium px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+                                <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
                                     href="classes.html">
                                     <i class="fa fa-pen text-gray-500"></i>
                                     Class and Exam
                                 </a>
                             </li>
-
+                        
                             <li>
-                                <a class="w-full flex items-center gap-x-3.5 py-2 font-medium px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+                                <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
                                     href="library.html">
                                     <i class="fa fa-book text-gray-500"></i>
                                     Library Management
                                 </a>
                             </li>
-
+                        
                             <li>
-                                <a class="w-full flex items-center gap-x-3.5 py-2 font-medium px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+                                <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
                                     href="inventory.html">
                                     <i class="fa fa-sitemap text-gray-500"></i>
                                     Inventory Management
                                 </a>
                             </li>
-
+                        
                             <li>
-                                <a class="w-full flex items-center gap-x-3.5 py-2 font-medium px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+                                <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
                                     href="events.html">
                                     <i class="fa fa-school text-gray-500"></i>
                                     Event Management
@@ -272,75 +273,291 @@
     <!-- Content -->
     <div class="w-full lg:ps-64">
         <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
-            <div class="grid gap-4 grid-cols-2 md:grid-cols-[1fr,1fr,1fr,10rem] items-end">
-                <div class="relative">
-                    <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5">
-                        <svg class="shrink-0 size-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24"
-                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="11" cy="11" r="8" />
-                            <path d="m21 21-4.3-4.3" />
-                        </svg>
+            <div class="border-b border-gray-200">
+                <nav class="flex gap-x-1 md:gap-x-2 lg:gap-x-5" aria-label="Tabs" role="tablist" aria-orientation="horizontal">
+                    <button type="button"
+                        class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none active"
+                        id="tabs-with-underline-item-1" aria-selected="true" data-hs-tab="#tabs-with-underline-1"
+                        aria-controls="tabs-with-underline-1" role="tab">
+                        Reports
+                    </button>
+                    <button type="button"
+                        class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none"
+                        id="tabs-with-underline-item-2" aria-selected="false" data-hs-tab="#tabs-with-underline-2"
+                        aria-controls="tabs-with-underline-2" role="tab">
+                        School Fees
+                    </button>
+                    <button type="button"
+                        class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none"
+                        id="tabs-with-underline-item-3" aria-selected="false" data-hs-tab="#tabs-with-underline-3"
+                        aria-controls="tabs-with-underline-3" role="tab">
+                        Library
+                    </button>
+                    <button type="button"
+                        class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none"
+                        id="tabs-with-underline-item-4" aria-selected="false" data-hs-tab="#tabs-with-underline-4"
+                        aria-controls="tabs-with-underline-4" role="tab">
+                        Medicals
+                    </button>
+                </nav>
+            </div>
+            
+            <div class="mt-3">
+                <div id="tabs-with-underline-1" role="tabpanel" aria-labelledby="tabs-with-underline-item-1">
+                    <div class="flex items-center justify-between">
+                        <div class="flex space-x-3 items-center">
+                            <p>From:</p>
+                            <input type="date" class="w-[140px] text-sm px-1 py-2 bg-gray-50 border border-gray-300 rounded-lg">
+                            <p>To:</p>
+                            <input type="date" class="w-[140px] text-sm px-1 py-2 bg-gray-50 border border-gray-300 rounded-lg">
+                        </div>
+            
+                        <button
+                            class="bg-blue-600 text-white text-sm px-4 py-2 rounded-lg font-medium hover:bg-blue-700 duration-150">Export
+                            Data</button>
                     </div>
-                    <input type="text"
-                        class="py-2 ps-10 pe-16 block w-full bg-gray-50 border-gray-200 rounded-lg text-sm focus:outline-none focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
-                        placeholder="Search payment ...">
+            
+                    <div class="mt-4 grid gap-4 grid-cols-1 md:grid-cols-[1fr,24rem]">
+                        <div class="bg-white border border-gray-300 rounded-lg px-3 py-5">
+                            <div class="flex items-center space-x-2">
+                                <p class="text-sm font-medium">Filter:</p>
+                                <select class="px-3 py-1 bg-gray-50 border border-gray-300 rounded-lg text-sm">
+                                    <option value="income">Income</option>
+                                    <option value="expense">Expense</option>
+                                    <option value="outstanding">Outstanding</option>
+                                </select>
+                            </div>
+            
+                            <div class="flex items-center justify-between mt-4">
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-sm font-medium">Range: </span>
+                                    <i class="fa fa-clock cursor-pointer px-2 py-2 text-gray-800 bg-gray-100 rounded-lg"
+                                        data-hs-overlay="#dateRangeModal"></i>
+                                    <span
+                                        class="px-2.5 cursor-pointer py-1.5 font-semibold text-gray-800 bg-gray-100 rounded-lg text-sm">D</span>
+                                    <span
+                                        class="px-2.5 cursor-pointer py-1.5 font-semibold text-gray-800 bg-gray-100 rounded-lg text-sm">M</span>
+                                </div>
+            
+                                <button class="flex items-center space-x-2">
+                                    <span class="text-sm font-medium">Download data</span>
+                                    <i class="fa fa-download"></i>
+                                </button>
+                            </div>
+            
+            
+                            <div id="incomeChart" class="mt-4"></div>
+                        </div>
+            
+                        <div class="bg-white border border-gray-300 rounded-lg px-3 py-5">
+                            <p class="text-md font-semibold text-center">Income</p>
+            
+                            <div class="chart-container w-[75%] mx-auto">
+                                <div id="categoryBreakdown"></div>
+                            </div>
+            
+                            <div class="mt-6">
+                                <div class="border-b border-gray-300 py-2 flex items-center justify-between">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="bg-green-500 p-1 rounded-full"></span>
+                                        <p class="font-medium text-sm">School Fees</p>
+                                    </div>
+                                    <p class="font-medium text-sm">43%</p>
+                                </div>
+            
+                                <div class="border-b border-gray-300 py-2 flex items-center justify-between">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="bg-yellow-500 p-1 rounded-full"></span>
+                                        <p class="font-medium text-sm">Sport</p>
+                                    </div>
+                                    <p class="font-medium text-sm">27%</p>
+                                </div>
+            
+                                <div class="border-b border-gray-300 py-2 flex items-center justify-between">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="bg-red-500 p-1 rounded-full"></span>
+                                        <p class="font-medium text-sm">Medical</p>
+                                    </div>
+                                    <p class="font-medium text-sm">33%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <a href="javascript:void(0)" type="button"
-                    onclick="document.getElementById('class-creation-modal').classList.remove('hidden')"
-                    class="text-center text-sm px-3 py-2 rounded-md border border-blue-600 bg-blue-600 hover:bg-blue-700 hover:border-blue-700 duration-300">
-                    <span class="font-medium text-white text-sm">+ Add new payment</span>
-                </a>
-                <a href="javascript:void(0)" type="button"
-                    onclick="document.getElementById('create-payment').classList.remove('hidden')"
-                    class="text-center text-sm px-3 py-2 rounded-md border border-blue-600 bg-blue-600 hover:bg-blue-700 hover:border-blue-700 duration-300">
-                    <span class="font-medium text-white text-sm">Create Payment</span>
-                </a>
+                <div id="tabs-with-underline-2" class="hidden" role="tabpanel" aria-labelledby="tabs-with-underline-item-2">
+                    <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                        <div class="border border-gray-300 rounded-lg bg-white px-3 py-4 flex justify-between items-center">
+                            <div class="flex items-center space-x-3">
+                                <img src="assets/images/hand-coin.png" alt="coin">
+            
+                                <div>
+                                    <span class="text-xs text-gray-400 font-medium">Total Tuition for the Month</span>
+                                    <h3 class="text-xl md:text-2xl font-bold">&#8358;123,456</h3>
+            
+                                    <p class="text-xs font-medium text-gray-400"><span class="text-green-500">+25%</span> than last
+                                        month
+                                    </p>
+                                </div>
+                            </div>
+            
+                            <img src="assets/images/line.png" alt="line" class="w-[85px]">
+                        </div>
+            
+            
+                        <div class="border border-gray-300 rounded-lg bg-white px-3 py-4 flex justify-between items-center">
+                            <div class="flex items-center space-x-3">
+                                <div>
+                                    <span class="text-xs text-gray-400 font-medium uppercase">total students</span>
+                                    <h3 class="text-xl md:text-2xl font-bold">356</h3>
+            
+                                    <div class="flex items-center space-x-3 mt-2">
+                                        <div class="flex items-center space-x-2">
+                                            <span class="rounded-full p-1 bg-[#233255]"></span>
+                                            <span class="text-xs">Male</span>
+                                        </div>
+            
+                                        <div class="flex items-center space-x-2">
+                                            <span class="rounded-full p-1 bg-blue-500"></span>
+                                            <span class="text-xs">Female</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <img src="assets/images/card-user.png" class="w-[85px]">
+                        </div>
+            
+                        <div class="border border-gray-300 rounded-lg bg-white px-3 py-4 flex justify-between items-center">
+                            <div class="flex items-center space-x-3">
+                                <div>
+                                    <span class="text-xs text-gray-400 font-medium uppercase">total paid</span>
+                                    <h3 class="text-xl md:text-2xl font-bold">&#8358;1,780,000</h3>
+            
+                                    <p class="text-xs font-medium text-gray-400">
+                                        <span class="text-green-500">+50%</span> than last month
+                                    </p>
+                                </div>
+                            </div>
+            
+                            <img src="assets/images/green-hand-coin.png" class="w-[85px]">
+                        </div>
+            
+                        <div class="border border-gray-300 rounded-lg bg-white px-3 py-4 flex justify-between items-center">
+                            <div class="flex items-center space-x-3">
+                                <div>
+                                    <span class="text-xs text-gray-400 font-medium uppercase">total unpaid</span>
+                                    <h3 class="text-xl md:text-2xl font-bold">&#8358;980,000</h3>
+            
+                                    <p class="text-xs font-medium text-gray-400">
+                                        <span class="text-red-500">-20%</span> than last month
+                                    </p>
+                                </div>
+                            </div>
+            
+                            <img src="assets/images/red-hand-coin.png" class="w-[85px]">
+                        </div>
+            
+                    </div>
+            
+                    <div class="grid grid-cols-1 md:grid-cols-[1fr,28rem] gap-4">
+                        <div class="mt-4 px-3 py-8 bg-white border border-gray-300 rounded-lg">
+                            <select class="mb-4 px-2 py-1 bg-gray-50 border border-gray-300 rounded-lg w-[130px] text-sm">
+                                <option value="">This Month</option>
+                                <option value="">This Quarter</option>
+                                <option value="">This Term</option>
+                                <option value="">This Year</option>
+                            </select>
+                            <div id="schoolFees"></div>
+                        </div>
+                    </div>
+            
+                    <div class="bg-white px-3 py-6 rounded-lg border border-gray-300 mt-4">
+                        <div class="grid gap-4 grid-cols-1 md:grid-cols-2 items-end">
+                            <div class="relative">
+                                <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5">
+                                    <svg class="shrink-0 size-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <circle cx="11" cy="11" r="8" />
+                                        <path d="m21 21-4.3-4.3" />
+                                    </svg>
+                                </div>
+                                <input type="text"
+                                    class="py-2 ps-10 pe-16 block w-full bg-gray-50 border-gray-200 rounded-lg text-sm focus:outline-none focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                                    placeholder="Search payment ...">
+                            </div>
+                        
+                            <div class="flex items-center space-x-2 justify-start md:justify-end">
+                                <a href="javascript:void(0)" type="button"
+                                    onclick="document.getElementById('class-creation-modal').classList.remove('hidden')"
+                                    class="text-center text-sm px-3 py-2 rounded-md border border-blue-600 bg-blue-600 hover:bg-blue-700 hover:border-blue-700 duration-300">
+                                    <span class="font-medium text-white text-sm">+ Add new payment</span>
+                                </a>
+                                <a href="javascript:void(0)" type="button"
+                                    onclick="document.getElementById('create-payment').classList.remove('hidden')"
+                                    class="text-center text-sm px-3 py-2 rounded-md border border-blue-600 bg-blue-600 hover:bg-blue-700 hover:border-blue-700 duration-300">
+                                    <span class="font-medium text-white text-sm">Create Payment</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Payment Table -->
+                        <div class="rounded-lg table-wrapper mt-4">
+                            <table class="w-full leading-normal text-xs sm:text-sm">
+                                <thead>
+                                    <tr>
+                                        <th
+                                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                            ID</th>
+                                        <th
+                                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                            Student</th>
+                                        <th
+                                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                            Payment Name</th>
+                                        <th
+                                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                            Amount Paid</th>
+                                        <th
+                                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                            Balance</th>
+                                        <th
+                                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                            Status</th>
+                                        <th
+                                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                            Payment ID</th>
+                                        <th
+                                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                            Transaction ID</th>
+                                        <th
+                                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                            Method</th>
+                                        <th
+                                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                            Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="paymentTableBody">
+                                    <!-- Rows will be dynamically generated here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="tabs-with-underline-3" class="hidden" role="tabpanel" aria-labelledby="tabs-with-underline-item-3">
+                    <p class="text-gray-500">
+                        This is the <em class="font-semibold text-gray-800">third</em> item's tab body.
+                    </p>
+                </div>
+                <div id="tabs-with-underline-4" class="hidden" role="tabpanel" aria-labelledby="tabs-with-underline-item-4">
+                    <p class="text-gray-500">
+                        This is the <em class="font-semibold text-gray-800">fourth</em> item's tab body.
+                    </p>
+                </div>
             </div>
 
-            <!-- Payment Table -->
-            <div class="bg-white rounded-lg shadow table-wrapper">
-                <table class="w-full leading-normal text-xs sm:text-sm">
-                    <thead>
-                        <tr>
-                            <th
-                                class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                                ID</th>
-                            <th
-                                class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                                Student</th>
-                            <th
-                                class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                                Payment Name</th>
-                            <th
-                                class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                                Amount Paid</th>
-                            <th
-                                class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                                Balance</th>
-                            <th
-                                class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                                Status</th>
-                            <th
-                                class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                                Payment ID</th>
-                            <th
-                                class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                                Transaction ID</th>
-                            <th
-                                class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                                Method</th>
-                            <th
-                                class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                                Time</th>
-                        </tr>
-                    </thead>
-                    <tbody id="paymentTableBody">
-                        <!-- Rows will be dynamically generated here -->
-                    </tbody>
-                </table>
-            </div>
+
         </div>
         <!-- create-modal -->
         <div id="create-payment" class="hidden fixed inset-0 bg-gray-600 m-5 bg-opacity-50 overflow-y-auto h-full w-full"
@@ -523,6 +740,167 @@
     <script type="module" src="assets/js/makepayment.js"></script>
     <script type="module" src="assets/js/allpay.js"></script>
     <script type="module" src="assets/js/createfee.js"></script>
+
+    <script>
+        var options = {
+            series: [{
+                name: "Income",
+                data: [5000, 6000, 5500, 1300, 9000, 9500, 8700, 5600, 4500, 7600, 8250, 9230]
+            }],
+            chart: {
+                height: 350,
+                type: 'line',
+                zoom: {
+                    enabled: false
+                }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'smooth'
+            },
+            grid: {
+                row: {
+                    colors: ['#f3f3f3', 'transparent'],
+                    opacity: 0.5
+                },
+            },
+            xaxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+            },
+            yaxis: {
+                title: {
+                    text: 'Amount (₦)',
+                },
+                labels: {
+                    formatter: function (value) {
+                        return '₦' + value.toLocaleString();
+                    }
+                }
+            },
+            tooltip: {
+                y: {
+                    formatter: function (value) {
+                        return '₦' + value.toLocaleString();
+                    }
+                }
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#incomeChart"), options);
+        chart.render();
+    </script>
+    
+    <script>
+        var options = {
+            series: [43, 27, 33],
+            chart: {
+                height: 350,
+                type: 'donut',
+                // width: "75%",
+            },
+            labels: ['School Fees', 'Sport', 'Medical'],
+            colors: ['#4CAF50', '#FF9800', '#F44336'],
+            plotOptions: {
+                pie: {
+                    donut: {
+                        size: '65%',
+
+                        labels: {
+                            show: true,
+                            total: {
+                                show: true,
+                                label: 'Total',
+                                formatter: () => '8M'
+                            }
+                        }
+                    }
+                },
+            },
+            stroke: {
+                show: true,
+                width: 10,
+                colors: ['#fff']
+            },
+            dataLabels: {
+                enabled: false
+            },
+            legend: {
+                show: false
+            },
+            tooltip: {
+                y: {
+                    formatter: function (value) {
+                        return value + '%';
+                    }
+                }
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#categoryBreakdown"), options);
+        chart.render();
+    </script>
+    <script>
+        var options = {
+            series: [
+                {
+                    name: 'Paid',
+                    data: [100, 80, 60, 40, 20, 50]
+                },
+                {
+                    name: 'Unpaid',
+                    data: [20, 30, 40, 50, 60, 70]
+                }
+            ],
+            chart: {
+                type: 'bar',
+                height: 350,
+                stacked: false,
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: '35%',
+                    endingShape: 'rounded'
+                },
+            },
+            colors: ['#4CAF50', '#F44336'],
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                show: true,
+                width: 2,
+                colors: ['transparent']
+            },
+            xaxis: {
+                categories: ['JSS 1', 'JSS 2', 'JSS 3', 'SSS 1', 'SSS 2', 'SSS 3'],
+            },
+            yaxis: {
+                title: {
+                    text: 'Amount'
+                }
+            },
+            fill: {
+                opacity: 1
+            },
+            tooltip: {
+                y: {
+                    formatter: function (val) {
+                        return "₦" + val + "K";
+                    }
+                }
+            },
+            legend: {
+                show: false
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#schoolFees"), options);
+        chart.render();
+
+    </script>
 </body>
 
 </html>

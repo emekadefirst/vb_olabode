@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>Teachers Management || Verbum</title>
+    <title>Exam Setting || Verbum</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/images/fav.png">
@@ -16,29 +16,6 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<style>
-    .modal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 50;
-}
-.close-modal {
-    cursor: pointer; /* Change cursor to pointer */
-    font-size: 1.5rem; /* Adjust font size as needed */
-}
-
-.hidden {
-    display: none;
-}
-
-</style>
 
 <body>
     <!-- ========== HEADER ========== -->
@@ -57,7 +34,7 @@
             <div class="w-full flex items-center justify-end ms-auto md:justify-between gap-x-1 md:gap-x-3">
                 <div class="hidden md:block">
                     <p class="font-medium text-sm text-gray-600">Home / Dashboard</p>
-                    <h3 class="text-md md:text-xl text-blue-600 font-bold">Teachers Management</h3>
+                    <h3 class="text-md md:text-xl text-blue-600 font-bold">Class and Exam</h3>
                 </div>
 
 
@@ -100,20 +77,61 @@
                         <button id="hs-dropdown-account" type="button"
                             class="size-[38px] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-800 focus:outline-none disabled:opacity-50 disabled:pointer-events-none dark:text-white"
                             aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
-                            <img class="shrink-0 size-[38px] rounded-full" src="" alt="Avatar">
+                            <img class="shrink-0 size-[38px] rounded-full"
+                                src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
+                                alt="Avatar">
                         </button>
 
                         <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg mt-2 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
                             role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-account">
                             <div class="py-3 px-5 bg-gray-100 rounded-t-lg dark:bg-neutral-700">
                                 <p class="text-sm text-gray-500 dark:text-neutral-500">Signed in as</p>
-                                <p class="text-sm font-medium text-gray-800 dark:text-neutral-200"></p>
+                                <p class="text-sm font-medium text-gray-800 dark:text-neutral-200">james@site.com</p>
                             </div>
                             <div class="p-1.5 space-y-0.5">
-                                <a id="logout"
-                                    class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
                                     href="#">
-                                    Logout
+                                    <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+                                        <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+                                    </svg>
+                                    Newsletter
+                                </a>
+                                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                    href="#">
+                                    <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                                        <path d="M3 6h18" />
+                                        <path d="M16 10a4 4 0 0 1-8 0" />
+                                    </svg>
+                                    Purchases
+                                </a>
+                                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                    href="#">
+                                    <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
+                                        <path d="M12 12v9" />
+                                        <path d="m8 17 4 4 4-4" />
+                                    </svg>
+                                    Downloads
+                                </a>
+                                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300"
+                                    href="#">
+                                    <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                        <circle cx="9" cy="7" r="4" />
+                                        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                    </svg>
+                                    Team Account
                                 </a>
                             </div>
                         </div>
@@ -165,7 +183,7 @@
                         </svg>
                     </li>
                     <li class="text-sm font-semibold text-gray-800 truncate" aria-current="page"></li>
-                    Teachers
+                    Exam setting
                     </li>
                 </ol>
                 <!-- End Breadcrumb -->
@@ -176,18 +194,18 @@
 
     <!-- Sidebar -->
     <div id="hs-application-sidebar" class="hs-overlay [--auto-close:lg]
-        hs-overlay-open:translate-x-0
-        -translate-x-full transition-all duration-300 transform
-        w-[260px] h-full
-        hidden
-        fixed inset-y-0 start-0 z-[50]
-        bg-white border-e border-gray-200
-        lg:block lg:translate-x-0 lg:end-auto lg:bottom-0" role="dialog" tabindex="-1" aria-label="Sidebar">
+    hs-overlay-open:translate-x-0
+    -translate-x-full transition-all duration-300 transform
+    w-[260px] h-full
+    hidden
+    fixed inset-y-0 start-0 z-[50]
+    bg-white border-e border-gray-200
+    lg:block lg:translate-x-0 lg:end-auto lg:bottom-0" role="dialog" tabindex="-1" aria-label="Sidebar">
         <div class="relative flex flex-col h-full max-h-full">
-            <div class="px-6 pt-4 border-b border-gray-300">
+            <div class="px-6 pt-4">
                 <!-- Logo -->
                 <a class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-none focus:opacity-80"
-                    href="dashboard.html" aria-label="Preline">
+                    href="#" aria-label="Preline">
                     <img src="assets/images/logo.png" alt="logo">
                 </a>
                 <!-- End Logo -->
@@ -203,64 +221,64 @@
                         data-hs-accordion-always-open>
                         <ul class="flex flex-col space-y-2">
                             <li>
-                                <a class="flex items-center gap-x-3.5 font-medium py-2 px-2.5 text-sm text-white rounded-lg bg-[#007BFF] focus:outline-none focus:bg-gray-100"
-                                    href="dashboard.html">
-                                    <i class="fa fa-home text-white"></i>
+                                <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                    href="index.html">
+                                    <i class="fa fa-home text-gray-500"></i>
                                     <span>Home</span>
                                 </a>
                             </li>
 
                             <li>
-                                <a class="flex items-center gap-x-3.5 py-2 font-medium px-2.5 hover:bg-gray-100 text-sm text-gray-500 rounded-lg focus:outline-none"
-                                    href="students.html">
+                                <a class="flex items-center gap-x-3.5 py-2 px-2.5 hover:bg-gray-100 text-sm text-gray-800 rounded-lg focus:outline-none"
+                                    href="index.html">
                                     <i class="fa fa-graduation-cap text-gray-500"></i>
                                     <span>Student Management</span>
                                 </a>
                             </li>
 
                             <li>
-                                <a class="w-full flex items-center gap-x-3.5 py-2 font-medium px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
-                                    href="teachers.html">
+                                <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+                                    href="reports.html">
                                     <i class="fa fa-chalkboard-user text-gray-500"></i>
                                     Teacher Management
                                 </a>
                             </li>
 
                             <li>
-                                <a class="w-full flex items-center gap-x-3.5 py-2 font-medium px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
-                                    href="fees.html">
+                                <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+                                    href="reports.html">
                                     <i class="fa fa-money-bill text-gray-500"></i>
                                     Fees and Payments
                                 </a>
                             </li>
 
                             <li>
-                                <a class="w-full flex items-center gap-x-3.5 py-2 font-medium px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+                                <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg bg-blue-600"
                                     href="classes.html">
-                                    <i class="fa fa-pen text-gray-500"></i>
+                                    <i class="fa fa-pen text-white"></i>
                                     Class and Exam
                                 </a>
                             </li>
 
                             <li>
-                                <a class="w-full flex items-center gap-x-3.5 py-2 font-medium px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
-                                    href="library.html">
+                                <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+                                    href="reports.html">
                                     <i class="fa fa-book text-gray-500"></i>
                                     Library Management
                                 </a>
                             </li>
 
                             <li>
-                                <a class="w-full flex items-center gap-x-3.5 py-2 font-medium px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
-                                    href="inventory.html">
+                                <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+                                    href="reports.html">
                                     <i class="fa fa-sitemap text-gray-500"></i>
                                     Inventory Management
                                 </a>
                             </li>
 
                             <li>
-                                <a class="w-full flex items-center gap-x-3.5 py-2 font-medium px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
-                                    href="events.html">
+                                <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+                                    href="reports.html">
                                     <i class="fa fa-school text-gray-500"></i>
                                     Event Management
                                 </a>
@@ -273,6 +291,20 @@
 
                     <hr class="mb-2" />
 
+                    <div class="px-3 flex justify-between mb-3">
+                        <a href="#" class="flex items-center">
+                            <img class="shrink-0 size-[30px] rounded-full mr-2"
+                                src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
+                                alt="Avatar">
+
+                            <div>
+                                <h3 class="text-sm font-medium">Victor Akinode</h3>
+                                <p class="text-xs font-medium text-gray-800">victor@telneting.com</p>
+                            </div>
+                        </a>
+
+                        <img src="assets/images/logout.png" alt="logout">
+                    </div>
                 </div>
             </div>
         </div>
@@ -284,149 +316,86 @@
     <div class="w-full lg:ps-64">
         <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
             <!-- your content goes here ... -->
-            <div class="grid gap-4 grid-cols-2">
-                <div class="relative">
-                    <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5">
-                        <svg class="shrink-0 size-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24"
-                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="11" cy="11" r="8" />
-                            <path d="m21 21-4.3-4.3" />
-                        </svg>
-                    </div>
-                    <input type="text"
-                        class="py-2 ps-10 pe-16 block w-full bg-gray-50 border-gray-200 rounded-lg text-sm focus:outline-none focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
-                        placeholder="Search teachers list...">
+            <div class="bg-white rounded-lg overflow-hidden">
+                <div class="bg-gray-100 px-3 py-2">
+                    <p class="text-md lg:text-lg font-semibold">Exam Setting</p>
                 </div>
-                
-                <div class="flex items-center space-x-3">
-                    <div class="hs-dropdown hs-dropdown-example relative inline-flex">
-                        <button id="hs-dropdown-example" type="button"
-                            class="hs-dropdown-toggle inline-flex items-center gap-x-2 text-sm px-3 py-2 rounded-md border border-blue-600 bg-blue-600 hover:bg-blue-700 hover:border-blue-700 duration-300"
-                            aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
-                            <div class="flex space-x-2 items-center">
-                                <span class="font-medium text-white text-sm">Create teacher</span>
-                                <i class="fa fa-chevron-down text-white"></i>
+            
+                <div class="px-3 py-6">
+                    <div class="grid gap-4 grid-cols-1 md:grid-cols-2">
+                        <div class="space-y-5">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-semibold text-md">Randomize Questions</h3>
+                                    <p class="text-sm">Randomize the order of questions for each student</p>
+                                </div>
+
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="hs-small-switch"
+                                        class="relative w-11 h-6 p-px bg-gray-100 border-transparent text-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none checked:bg-none checked:text-blue-600 checked:border-blue-600 focus:checked:border-blue-600
+                                
+                                  before:inline-block before:size-5 before:bg-white checked:before:bg-blue-200 before:translate-x-0 checked:before:translate-x-full before:rounded-full before:shadow before:transform before:ring-0 before:transition before:ease-in-out before:duration-200">
+                                    <label for="hs-small-switch" class="text-sm text-gray-500 ms-3">No</label>
+                                </div>
                             </div>
-                        </button>
-                    
-                        <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-56 hidden z-10 mt-2 min-w-60 bg-white shadow-md rounded-lg p-2"
-                            role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-example">
-                            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:text-white hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
-                                href="#">
-                                Import CSV
-                            </a>
-                            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:text-white hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
-                                href="enroll-teacher.html">
-                                Enroll now
-                            </a>
+
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-semibold text-md">Allow retakes</h3>
+                                    <p class="text-sm">Enable students to retake the exam.</p>
+                                </div>
+                            
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="hs-small-switch"
+                                        class="relative w-11 h-6 p-px bg-gray-100 border-transparent text-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none checked:bg-none checked:text-blue-600 checked:border-blue-600 focus:checked:border-blue-600
+                                                            
+                                        before:inline-block before:size-5 before:bg-white checked:before:bg-blue-200 before:translate-x-0 checked:before:translate-x-full before:rounded-full before:shadow before:transform before:ring-0 before:transition before:ease-in-out before:duration-200">
+                                    <label for="hs-small-switch" class="text-sm text-gray-500 ms-3">No</label>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-semibold text-md">Max retakes allowed</h3>
+                                    <p class="text-sm">Define how many times students can retake the exam</p>
+                                </div>
+
+                                <div class="input">
+                                    <input type="number" class="w-[85px] p-2 border border-gray-300 rounded-lg">
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-semibold text-md">Grading system</h3>
+                                    <p class="text-sm">Choose grading system</p>
+                                </div>
+                            
+                                <div class="input">
+                                    <input type="number" class="w-[85px] p-2 border border-gray-300 rounded-lg">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <a href="#" type="button"
-                        class="text-center text-sm px-3 py-2 rounded-md border border-blue-600 bg-blue-600 hover:bg-blue-700 hover:border-blue-700 duration-300"
-                        onclick="openModal('classModal')">
-                        <span class="font-medium text-white text-sm">Create subject</span>
-                    </a>
+
+                    <div class="mt-8 md:mt-32 flex justify-end">
+                        <button href="enroll-student.html"
+                            class="bg-blue-600 text-white text-sm px-4 py-2 rounded-lg font-medium hover:bg-blue-700 duration-150">Confirm</button>
+                    </div>
                 </div>
             </div>
 
-            <div class="grid gap-4 grid-cols-2 md:grid-cols-4" id="teacher-frame">
-
-            </div>
 
         </div>
 
     </div>
-<!-- Modal Structure -->
-<div id="classModal" class="modal hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-    <div
-        class="formbox bg-white border border-gray-300 rounded-lg px-3 py-8 w-[95%] md:w-[55%] lg:w-[45%] mx-auto relative">
-        <h3 class="font-semibold text-lg text-center">Create new subject</h3>
+    <!-- End Content -->
+    <!-- ========== END MAIN CONTENT ========== -->
 
-        <form id="subject-creation">
-            <div id="first-form">
-                <div class="space-y-4">
-                    <div class="max-w-sm mx-auto space-y-3">
-                        <div>
-                            <label for="name" class="block text-sm font-medium mb-2">Subject name</label>
-                            <div class="relative">
-                                <input type="text" id="subject-name" name="name"
-                                    class="py-3 px-4 ps-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
-                                    placeholder="e.g Mathematics">
-                                <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
-                                    <i class="fa fa-book text-gray-300"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="max-w-sm mx-auto space-y-3">
-                        <div>
-                            <label for="teacher" class="block text-sm font-medium mb-2">Select teacher</label>
-                            <div class="relative">
-                                <select id="class-name"
-                                    class="py-3 px-4 ps-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
-                                    <option>Select class</option>
-                                </select>
-                                <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
-                                    <i class="fa fa-pen text-gray-300"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="max-w-sm mx-auto space-y-3">
-                        <div>
-                            <label for="teacher" class="block text-sm font-medium mb-2">Select teacher</label>
-                            <div class="relative">
-                                <select id="teacher-name"
-                                    class="py-3 px-4 ps-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
-                                    <option>Select teacher</option>
-                                </select>
-                                <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
-                                    <i class="fa fa-user text-gray-300"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- JS Implementing Plugins -->
+    <!-- Required plugins -->
+    <script src="assets/js/index.js"></script>
 
-                <div class="max-w-sm mx-auto mt-6">
-                    <button type="submit"
-                        class="w-full px-3 py-3 bg-blue-600 hover:bg-blue-700 duration-200 text-sm font-medium text-white rounded-lg">Create</button>
-                </div>
-            </div>
-        </form>
-
-        <!-- Close Button -->
-        <button class="close-modal absolute top-2 right-2 text-gray-400 hover:text-gray-600"
-            onclick="closeModal('classModal')">&times;</button>
-    </div>
-</div>
-    <script src="assets/js/logout.js"></script>
-    <script type="module" src="assets/js/index.js"></script>
-    <script type="module" src="assets/js/getteachers.js"></script>
-    <script type="module" src="assets/js/dashboard.js"></script>
-    <script type="module" src="assets/js/auth.js"></script>
-    <script type="module" src="assets/js/createsubject.js"></script>
-    <script>
-        function openModal(modalId) {
-                const modal = document.getElementById(modalId);
-                modal.classList.remove('hidden');
-            }
-
-            function closeModal(modalId) {
-                const modal = document.getElementById(modalId);
-                modal.classList.add('hidden');
-            }
-
-            // Close the modal when clicking outside of it
-            window.addEventListener('click', function (event) {
-                const modal = document.getElementById('classModal');
-                if (event.target === modal) {
-                    closeModal('classModal');
-                }
-            });
-
-    </script>
 </body>
 
 </html>
