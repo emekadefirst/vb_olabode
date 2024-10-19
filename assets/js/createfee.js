@@ -7,12 +7,13 @@ document
     event.preventDefault();
     console.log("Form submitted!");
 
-    
-
     const formData = new FormData();
-    formData.append("payment_name",document.getElementById("payment_name").value);
-    formData.append("grade", document.getElementById("class").value); // This now sends the name of the grade
-    formData.append("term", document.getElementById("term").value); // This now sends the name of the term
+    formData.append(
+      "payment_name",
+      document.getElementById("payment_name").value
+    );
+    formData.append("grade", document.getElementById("class").value);
+    formData.append("term", document.getElementById("term").value);
     formData.append("amount", document.getElementById("amount").value);
 
     try {
@@ -20,8 +21,7 @@ document
         method: "POST",
         body: formData,
         headers: {
-          "Content-Type": "application/json",
-          Authorization: `Token ${token}`,
+          Authorization: `Token ${token}`, // Do not include "Content-Type" when sending FormData
         },
       });
 

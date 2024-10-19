@@ -7,5 +7,5 @@
 
 // const api = "http://127.0.0.1:8000";
 // module.exports = http://service.verbumdeiportal.com/
-export const api = "https://verbumdei-management-system-vms.onrender.com";
+export const api = "http://service.verbumdeiportal.com";
 
