@@ -1,5 +1,4 @@
 import { api } from "./api.js";
-const token = localStorage.getItem("authToken");
 
 document
   .getElementById("add-payment")
@@ -17,19 +16,14 @@ document
     formData.append("student", document.getElementById("registrationId").value);
     formData.append("term", document.getElementById("term-m").value);
     formData.append("method", document.getElementById("payment_method").value);
-    formData.append("amount_paid", document.getElementById("deposit").value); // Fixed the reference to the correct input
+    formData.append("amount_paid", document.getElementById("deposit").value);
 
     const paymentMethod = document.getElementById("payment_method").value;
     const transactionNumberInput =
       document.getElementById("transaction_number");
 
     if (paymentMethod === "POS" || paymentMethod === "TRANSFER") {
-      transactionNumberInput.setAttribute("required", "true");
-      transactionNumberInput.style.display = "block"; // Ensure it's visible
       formData.append("transaction_id", transactionNumberInput.value);
-    } else {
-      transactionNumberInput.removeAttribute("required");
-      transactionNumberInput.style.display = "none"; // Hide when not required
     }
 
     try {
@@ -37,16 +31,15 @@ document
         method: "POST",
         body: formData,
         headers: {
-          Authorization: `Token ${token}`,
-          "Content-Type": "application/json",
+          Authorization: `Token ${token}`, // Token required for authenticated API
         },
       });
 
       if (response.ok) {
         const data = await response.json();
         alert("Payment successful!");
-        document.getElementById("add-payment").reset(); // Reset form
-        location.reload(); // Refresh page
+        document.getElementById("add-payment").reset(); // Reset the form after success
+        location.reload(); // Reload the page to reflect the changes
       } else {
         const errorData = await response.json();
         alert(
@@ -75,4 +68,3 @@ document
       transactionNumberInput.removeAttribute("required");
     }
   });
-

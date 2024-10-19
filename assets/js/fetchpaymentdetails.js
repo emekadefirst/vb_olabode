@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const data = await response.json();
         data.forEach((type) => {
           const option = document.createElement("option");
-          option.value = type.payment_name;
+          option.value = type.title;
           option.textContent = type.title;
           parentSelect.appendChild(option);
         });
