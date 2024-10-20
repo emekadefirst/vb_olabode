@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <style>
     .table-wrapper {
@@ -28,6 +29,14 @@
         min-width: 1000px;
         /* Adjust based on your content */
     }
+    .apexcharts-legend {
+    display: none; /* This will hide the legend div */
+}
+
+foreignObject {
+    display: none; /* This will hide the entire foreignObject */
+}
+
 </style>
 
 <body>
@@ -199,7 +208,7 @@
                                     <span>Home</span>
                                 </a>
                             </li>
-                        
+
                             <li>
                                 <a class="flex items-center gap-x-3.5 py-2 px-2.5 hover:bg-gray-100 text-sm text-gray-800 rounded-lg focus:outline-none"
                                     href="students.html">
@@ -207,7 +216,7 @@
                                     <span>Student Management</span>
                                 </a>
                             </li>
-                        
+
                             <li>
                                 <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
                                     href="teachers.html">
@@ -215,7 +224,7 @@
                                     Teachers Management
                                 </a>
                             </li>
-                        
+
                             <li>
                                 <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg bg-blue-600"
                                     href="fees.html">
@@ -223,7 +232,7 @@
                                     Fees and Payments
                                 </a>
                             </li>
-                        
+
                             <li>
                                 <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
                                     href="classes.html">
@@ -231,7 +240,7 @@
                                     Class and Exam
                                 </a>
                             </li>
-                        
+
                             <li>
                                 <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
                                     href="library.html">
@@ -239,7 +248,7 @@
                                     Library Management
                                 </a>
                             </li>
-                        
+
                             <li>
                                 <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
                                     href="inventory.html">
@@ -247,7 +256,7 @@
                                     Inventory Management
                                 </a>
                             </li>
-                        
+
                             <li>
                                 <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
                                     href="events.html">
@@ -274,7 +283,8 @@
     <div class="w-full lg:ps-64">
         <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
             <div class="border-b border-gray-200">
-                <nav class="flex gap-x-1 md:gap-x-2 lg:gap-x-5" aria-label="Tabs" role="tablist" aria-orientation="horizontal">
+                <nav class="flex gap-x-1 md:gap-x-2 lg:gap-x-5" aria-label="Tabs" role="tablist"
+                    aria-orientation="horizontal">
                     <button type="button"
                         class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none active"
                         id="tabs-with-underline-item-1" aria-selected="true" data-hs-tab="#tabs-with-underline-1"
@@ -287,356 +297,290 @@
                         aria-controls="tabs-with-underline-2" role="tab">
                         School Fees
                     </button>
-                    <button type="button"
-                        class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none"
-                        id="tabs-with-underline-item-3" aria-selected="false" data-hs-tab="#tabs-with-underline-3"
-                        aria-controls="tabs-with-underline-3" role="tab">
-                        Library
-                    </button>
-                    <button type="button"
-                        class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none"
-                        id="tabs-with-underline-item-4" aria-selected="false" data-hs-tab="#tabs-with-underline-4"
-                        aria-controls="tabs-with-underline-4" role="tab">
-                        Medicals
-                    </button>
                 </nav>
             </div>
-            
+
             <div class="mt-3">
                 <div id="tabs-with-underline-1" role="tabpanel" aria-labelledby="tabs-with-underline-item-1">
                     <div class="flex items-center justify-between">
                         <div class="flex space-x-3 items-center">
                             <p>From:</p>
-                            <input type="date" class="w-[140px] text-sm px-1 py-2 bg-gray-50 border border-gray-300 rounded-lg">
+                            <input type="date" id="startDate"
+                                class="w-[140px] text-sm px-1 py-2 bg-gray-50 border border-gray-300 rounded-lg">
                             <p>To:</p>
-                            <input type="date" class="w-[140px] text-sm px-1 py-2 bg-gray-50 border border-gray-300 rounded-lg">
+                            <input type="date" id="endDate"
+                                class="w-[140px] text-sm px-1 py-2 bg-gray-50 border border-gray-300 rounded-lg">
                         </div>
-            
-                        <button
+                        <button id="exportDataBtn"
                             class="bg-blue-600 text-white text-sm px-4 py-2 rounded-lg font-medium hover:bg-blue-700 duration-150">Export
                             Data</button>
                     </div>
-            
-                    <div class="mt-4 grid gap-4 grid-cols-1 md:grid-cols-[1fr,24rem]">
+
+                    <div class="mt-4 grid gap-4 grid-cols-1 md:grid-cols-[1fr,24rem] items-start">
                         <div class="bg-white border border-gray-300 rounded-lg px-3 py-5">
                             <div class="flex items-center space-x-2">
-                                <p class="text-sm font-medium">Filter:</p>
-                                <select class="px-3 py-1 bg-gray-50 border border-gray-300 rounded-lg text-sm">
-                                    <option value="income">Income</option>
-                                    <option value="expense">Expense</option>
-                                    <option value="outstanding">Outstanding</option>
-                                </select>
+
                             </div>
-            
+
                             <div class="flex items-center justify-between mt-4">
                                 <div class="flex items-center space-x-2">
                                     <span class="text-sm font-medium">Range: </span>
-                                    <i class="fa fa-clock cursor-pointer px-2 py-2 text-gray-800 bg-gray-100 rounded-lg"
-                                        data-hs-overlay="#dateRangeModal"></i>
+                                    <i
+                                        class="fa fa-clock cursor-pointer px-2 py-2 text-gray-800 bg-gray-100 rounded-lg"></i>
                                     <span
                                         class="px-2.5 cursor-pointer py-1.5 font-semibold text-gray-800 bg-gray-100 rounded-lg text-sm">D</span>
                                     <span
                                         class="px-2.5 cursor-pointer py-1.5 font-semibold text-gray-800 bg-gray-100 rounded-lg text-sm">M</span>
                                 </div>
-            
-                                <button class="flex items-center space-x-2">
+                                <button class="flex items-center space-x-2" id="downloadDataBtn">
                                     <span class="text-sm font-medium">Download data</span>
                                     <i class="fa fa-download"></i>
                                 </button>
                             </div>
-            
-            
-                            <div id="incomeChart" class="mt-4"></div>
+                            <div id="combinedChart" class="mt-4"></div>
+
                         </div>
-            
-                        <div class="bg-white border border-gray-300 rounded-lg px-3 py-5">
+
+                        <div class="bg-white border border-gray-300 rounded-lg px-3 py-2">
                             <p class="text-md font-semibold text-center">Income</p>
-            
                             <div class="chart-container w-[75%] mx-auto">
                                 <div id="categoryBreakdown"></div>
-                            </div>
-            
-                            <div class="mt-6">
-                                <div class="border-b border-gray-300 py-2 flex items-center justify-between">
-                                    <div class="flex items-center space-x-2">
-                                        <span class="bg-green-500 p-1 rounded-full"></span>
-                                        <p class="font-medium text-sm">School Fees</p>
-                                    </div>
-                                    <p class="font-medium text-sm">43%</p>
-                                </div>
-            
-                                <div class="border-b border-gray-300 py-2 flex items-center justify-between">
-                                    <div class="flex items-center space-x-2">
-                                        <span class="bg-yellow-500 p-1 rounded-full"></span>
-                                        <p class="font-medium text-sm">Sport</p>
-                                    </div>
-                                    <p class="font-medium text-sm">27%</p>
-                                </div>
-            
-                                <div class="border-b border-gray-300 py-2 flex items-center justify-between">
-                                    <div class="flex items-center space-x-2">
-                                        <span class="bg-red-500 p-1 rounded-full"></span>
-                                        <p class="font-medium text-sm">Medical</p>
-                                    </div>
-                                    <p class="font-medium text-sm">33%</p>
-                                </div>
+                                <div id="categoryDetails"></div>
                             </div>
                         </div>
+
+                        
                     </div>
                 </div>
-                <div id="tabs-with-underline-2" class="hidden" role="tabpanel" aria-labelledby="tabs-with-underline-item-2">
-                    <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                        <div class="border border-gray-300 rounded-lg bg-white px-3 py-4 flex justify-between items-center">
-                            <div class="flex items-center space-x-3">
-                                <img src="assets/images/hand-coin.png" alt="coin">
-            
-                                <div>
-                                    <span class="text-xs text-gray-400 font-medium">Total Tuition for the Month</span>
-                                    <h3 class="text-xl md:text-2xl font-bold">&#8358;123,456</h3>
-            
-                                    <p class="text-xs font-medium text-gray-400"><span class="text-green-500">+25%</span> than last
-                                        month
-                                    </p>
-                                </div>
-                            </div>
-            
-                            <img src="assets/images/line.png" alt="line" class="w-[85px]">
-                        </div>
-            
-            
-                        <div class="border border-gray-300 rounded-lg bg-white px-3 py-4 flex justify-between items-center">
-                            <div class="flex items-center space-x-3">
-                                <div>
-                                    <span class="text-xs text-gray-400 font-medium uppercase">total students</span>
-                                    <h3 class="text-xl md:text-2xl font-bold">356</h3>
-            
-                                    <div class="flex items-center space-x-3 mt-2">
-                                        <div class="flex items-center space-x-2">
-                                            <span class="rounded-full p-1 bg-[#233255]"></span>
-                                            <span class="text-xs">Male</span>
-                                        </div>
-            
-                                        <div class="flex items-center space-x-2">
-                                            <span class="rounded-full p-1 bg-blue-500"></span>
-                                            <span class="text-xs">Female</span>
-                                        </div>
+            </div>
+            <div id="tabs-with-underline-2" class="hidden" role="tabpanel" aria-labelledby="tabs-with-underline-item-2">
+                <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                    <div class="border border-gray-300 rounded-lg bg-white px-3 py-4 flex justify-between items-center">
+                        <div class="flex items-center space-x-3">
+                            <div>
+                                <span class="text-xs text-gray-400 font-medium uppercase">total students</span>
+                                <h3 class="text-xl md:text-2xl font-bold" id="student-count">0</h3>
+
+                                <div class="flex items-center space-x-3 mt-2">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="rounded-full p-1 bg-[#233255]"></span>
+                                        <span class="text-xs">None</span>
+                                    </div>
+
+                                    <div class="flex items-center space-x-2">
+                                        <span class="rounded-full p-1 bg-blue-500"></span>
+                                        <span class="text-xs">None</span>
                                     </div>
                                 </div>
                             </div>
-            
-                            <img src="assets/images/card-user.png" class="w-[85px]">
                         </div>
-            
-                        <div class="border border-gray-300 rounded-lg bg-white px-3 py-4 flex justify-between items-center">
-                            <div class="flex items-center space-x-3">
-                                <div>
-                                    <span class="text-xs text-gray-400 font-medium uppercase">total paid</span>
-                                    <h3 class="text-xl md:text-2xl font-bold">&#8358;1,780,000</h3>
-            
-                                    <p class="text-xs font-medium text-gray-400">
-                                        <span class="text-green-500">+50%</span> than last month
-                                    </p>
-                                </div>
-                            </div>
-            
-                            <img src="assets/images/green-hand-coin.png" class="w-[85px]">
-                        </div>
-            
-                        <div class="border border-gray-300 rounded-lg bg-white px-3 py-4 flex justify-between items-center">
-                            <div class="flex items-center space-x-3">
-                                <div>
-                                    <span class="text-xs text-gray-400 font-medium uppercase">total unpaid</span>
-                                    <h3 class="text-xl md:text-2xl font-bold">&#8358;980,000</h3>
-            
-                                    <p class="text-xs font-medium text-gray-400">
-                                        <span class="text-red-500">-20%</span> than last month
-                                    </p>
-                                </div>
-                            </div>
-            
-                            <img src="assets/images/red-hand-coin.png" class="w-[85px]">
-                        </div>
-            
+
+                        <img src="assets/images/card-user.png" class="w-[85px]">
                     </div>
-            
-                    <div class="grid grid-cols-1 md:grid-cols-[1fr,28rem] gap-4">
-                        <div class="mt-4 px-3 py-8 bg-white border border-gray-300 rounded-lg">
-                            <select class="mb-4 px-2 py-1 bg-gray-50 border border-gray-300 rounded-lg w-[130px] text-sm">
-                                <option value="">This Month</option>
-                                <option value="">This Quarter</option>
-                                <option value="">This Term</option>
-                                <option value="">This Year</option>
-                            </select>
-                            <div id="schoolFees"></div>
+
+                    <div class="border border-gray-300 rounded-lg bg-white px-3 py-4 flex justify-between items-center">
+                        <div class="flex items-center space-x-3">
+                            <div>
+                                <span class="text-xs text-gray-400 font-medium">Total Tuition for the Month</span>
+                                <h3 class="text-xl md:text-2xl font-bold" id="total-sum">&#8358;0</h3>
+
+                                <p class="text-xs font-medium text-gray-400"><span class="text-green-500"
+                                        id="perc-increase">+0%</span> than last
+                                    month
+                                </p>
+                            </div>
+                        </div>
+
+                        <img src="assets/images/green-hand-coin.png" class="w-[85px]">
+                    </div>
+
+                    <div class="border border-gray-300 rounded-lg bg-white px-3 py-4 flex justify-between items-center">
+                        <div class="flex items-center space-x-3">
+                            <div>
+                                <span class="text-xs text-gray-400 font-medium uppercase">total unpaid</span>
+                                <h3 class="text-xl md:text-2xl font-bold" id="total-debt">&#8358;</h3>
+
+                                <p class="text-xs font-medium text-gray-400">
+                                    <span class="text-red-500" id="dept-perc"></span> than last month
+                                </p>
+                            </div>
+                        </div>
+
+                        <img src="assets/images/red-hand-coin.png" class="w-[85px]">
+                    </div>
+
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-[1fr, 30rem] gap-4">
+                    <div class="mt-4 px-3 py-8 bg-white border border-gray-300 rounded-lg">
+                        <select class="mb-4 px-2 py-1 bg-gray-50 border border-gray-300 rounded-lg w-[130px] text-sm">
+                            <option value="">This Month</option>
+                            <option value="">This Quarter</option>
+                            <option value="">This Term</option>
+                            <option value="">This Year</option>
+                        </select>
+                        <div id="schoolFees"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white px-3 py-6 rounded-lg border border-gray-300 mt-4">
+                    <div class="grid gap-4 grid-cols-1 md:grid-cols-2 items-end">
+                        <div class="relative">
+                            <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5">
+                                <svg class="shrink-0 size-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24"
+                                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <path d="m21 21-4.3-4.3" />
+                                </svg>
+                            </div>
+                            <input type="text"
+                                class="py-2 ps-10 pe-16 block w-full bg-gray-50 border-gray-200 rounded-lg text-sm focus:outline-none focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                                placeholder="Search payment ...">
+                        </div>
+
+                        <div class="flex items-center space-x-2 justify-start md:justify-end">
+                            <a href="javascript:void(0)" type="button"
+                                onclick="document.getElementById('class-creation-modal').classList.remove('hidden')"
+                                class="text-center text-sm px-3 py-2 rounded-md border border-blue-600 bg-blue-600 hover:bg-blue-700 hover:border-blue-700 duration-300">
+                                <span class="font-medium text-white text-sm">+ Add new payment</span>
+                            </a>
+                            <a href="javascript:void(0)" type="button"
+                                onclick="document.getElementById('create-payment').classList.remove('hidden')"
+                                class="text-center text-sm px-3 py-2 rounded-md border border-blue-600 bg-blue-600 hover:bg-blue-700 hover:border-blue-700 duration-300">
+                                <span class="font-medium text-white text-sm">Create Payment</span>
+                            </a>
                         </div>
                     </div>
-            
-                    <div class="bg-white px-3 py-6 rounded-lg border border-gray-300 mt-4">
-                        <div class="grid gap-4 grid-cols-1 md:grid-cols-2 items-end">
+
+                    <!-- Payment Table -->
+                    <div class="rounded-lg table-wrapper mt-4">
+                        <table class="w-full leading-normal text-xs sm:text-sm">
+                            <thead>
+                                <tr>
+                                    <th
+                                        class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                        ID</th>
+                                    <th
+                                        class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                        Student</th>
+                                    <th
+                                        class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                        Payment Name</th>
+                                    <th
+                                        class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                        Amount Paid</th>
+                                    <th
+                                        class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                        Balance</th>
+                                    <th
+                                        class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                        Status</th>
+                                    <th
+                                        class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                        Payment ID</th>
+                                    <th
+                                        class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                        Transaction ID</th>
+                                    <th
+                                        class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                        Method</th>
+                                    <th
+                                        class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                                        Time</th>
+                                </tr>
+                            </thead>
+                            <tbody id="paymentTableBody">
+                                <!-- Rows will be dynamically generated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- create-modal -->
+    <div id="create-payment" class="hidden fixed inset-0 bg-gray-600 m-5 bg-opacity-50 overflow-y-auto h-full w-full"
+        role="dialog" aria-modal="true">
+        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+            <button id="close-create-payment-modal"
+                class="absolute top-0 right-0 mt-3 mr-3 text-gray-600 hover:text-gray-800 focus:outline-none"
+                onclick="document.getElementById('create-payment').classList.add('hidden')">
+                <i class="fa fa-times"></i>
+            </button>
+            <div class="mt-3 text-center">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">Create new payment</h3>
+                <div class="mt-2 px-7 py-3">
+                    <form id="payment-creation">
+                        <div>
+                            <label for="payment_name" class="block text-sm font-medium mb-1 mt-3 text-left">Name</label>
                             <div class="relative">
-                                <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5">
-                                    <svg class="shrink-0 size-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <circle cx="11" cy="11" r="8" />
-                                        <path d="m21 21-4.3-4.3" />
-                                    </svg>
-                                </div>
-                                <input type="text"
-                                    class="py-2 ps-10 pe-16 block w-full bg-gray-50 border-gray-200 rounded-lg text-sm focus:outline-none focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
-                                    placeholder="Search payment ...">
-                            </div>
-                        
-                            <div class="flex items-center space-x-2 justify-start md:justify-end">
-                                <a href="javascript:void(0)" type="button"
-                                    onclick="document.getElementById('class-creation-modal').classList.remove('hidden')"
-                                    class="text-center text-sm px-3 py-2 rounded-md border border-blue-600 bg-blue-600 hover:bg-blue-700 hover:border-blue-700 duration-300">
-                                    <span class="font-medium text-white text-sm">+ Add new payment</span>
-                                </a>
-                                <a href="javascript:void(0)" type="button"
-                                    onclick="document.getElementById('create-payment').classList.remove('hidden')"
-                                    class="text-center text-sm px-3 py-2 rounded-md border border-blue-600 bg-blue-600 hover:bg-blue-700 hover:border-blue-700 duration-300">
-                                    <span class="font-medium text-white text-sm">Create Payment</span>
-                                </a>
+                                <input type="text" id="payment_name"
+                                    class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                                    placeholder="e.g School fee">
                             </div>
                         </div>
-                        
-                        <!-- Payment Table -->
-                        <div class="rounded-lg table-wrapper mt-4">
-                            <table class="w-full leading-normal text-xs sm:text-sm">
-                                <thead>
-                                    <tr>
-                                        <th
-                                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                                            ID</th>
-                                        <th
-                                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                                            Student</th>
-                                        <th
-                                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                                            Payment Name</th>
-                                        <th
-                                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                                            Amount Paid</th>
-                                        <th
-                                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                                            Balance</th>
-                                        <th
-                                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                                            Status</th>
-                                        <th
-                                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                                            Payment ID</th>
-                                        <th
-                                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                                            Transaction ID</th>
-                                        <th
-                                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                                            Method</th>
-                                        <th
-                                            class="px-2 sm:px-5 py-2 sm:py-3 border-b-2 border-gray-200 bg-gray-100 text-left font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
-                                            Time</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="paymentTableBody">
-                                    <!-- Rows will be dynamically generated here -->
-                                </tbody>
-                            </table>
+                        <div>
+                            <label for="term" class="block text-sm font-medium mb-2 text-left">Term</label>
+                            <div class="relative">
+                                <select id="term"
+                                    class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                                    required>
+                                    <option value="">Select term</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div id="tabs-with-underline-3" class="hidden" role="tabpanel" aria-labelledby="tabs-with-underline-item-3">
-                    <p class="text-gray-500">
-                        This is the <em class="font-semibold text-gray-800">third</em> item's tab body.
-                    </p>
-                </div>
-                <div id="tabs-with-underline-4" class="hidden" role="tabpanel" aria-labelledby="tabs-with-underline-item-4">
-                    <p class="text-gray-500">
-                        This is the <em class="font-semibold text-gray-800">fourth</em> item's tab body.
-                    </p>
-                </div>
-            </div>
-
-
-        </div>
-        <!-- create-modal -->
-        <div id="create-payment" class="hidden fixed inset-0 bg-gray-600 m-5 bg-opacity-50 overflow-y-auto h-full w-full"
-            role="dialog" aria-modal="true">
-            <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
-                <button id="close-create-payment-modal"
-                    class="absolute top-0 right-0 mt-3 mr-3 text-gray-600 hover:text-gray-800 focus:outline-none"
-                    onclick="document.getElementById('create-payment').classList.add('hidden')">
-                    <i class="fa fa-times"></i>
-                </button>
-                <div class="mt-3 text-center">
-                    <h3 class="text-lg leading-6 font-medium text-gray-900">Create new payment</h3>
-                    <div class="mt-2 px-7 py-3">
-                        <form id="payment-creation">
-                            <div>
-                                <label for="payment_name" class="block text-sm font-medium mb-1 mt-3 text-left">Name</label>
-                                <div class="relative">
-                                    <input type="text" id="payment_name"
-                                        class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-                                        placeholder="e.g School fee">
-                                </div>
+                        <div>
+                            <label for="class" class="block text-sm font-medium mb-2 text-left">Class</label>
+                            <div class="relative">
+                                <select id="class"
+                                    class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                                    required>
+                                    <option value="">Select class</option>
+                                </select>
                             </div>
-                            <div>
-                                <label for="term" class="block text-sm font-medium mb-2 text-left">Term</label>
-                                <div class="relative">
-                                    <select id="term"
-                                        class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-                                        required>
-                                        <option value="">Select term</option>
-                                    </select>
-                                </div>
+                        </div>
+                        <div>
+                            <label for="amount_paid"
+                                class="block text-sm font-medium mb-1 mt-3 text-left">Amount</label>
+                            <div class="relative">
+                                <input type="text" id="amount" name="amount_paid"
+                                    class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                                    placeholder="Enter amount">
                             </div>
-                            <div>
-                                <label for="class" class="block text-sm font-medium mb-2 text-left">Class</label>
-                                <div class="relative">
-                                    <select id="class"
-                                        class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-                                        required>
-                                        <option value="">Select class</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div>
-                                <label for="amount_paid" class="block text-sm font-medium mb-1 mt-3 text-left">Amount</label>
-                                <div class="relative">
-                                    <input type="text" id="amount" name="amount_paid"
-                                        class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-                                        placeholder="Enter amount">
-                                </div>
-                            </div>
-                            <div class="mt-6">
-                                <button type="submit"
-                                    class="w-full px-3 py-3 bg-blue-600 hover:bg-blue-700 duration-200 text-sm font-medium text-white rounded-lg">Create</button>
-                            </div>
-                        </form>
-                    </div>
+                        </div>
+                        <div class="mt-6">
+                            <button type="submit"
+                                class="w-full px-3 py-3 bg-blue-600 hover:bg-blue-700 duration-200 text-sm font-medium text-white rounded-lg">Create</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Modal -->
-        <div id="class-creation-modal"
-            class="hidden fixed inset-0 bg-gray-600 m-5 bg-opacity-50 overflow-y-auto h-full w-full" role="dialog"
-            aria-modal="true">
-            <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+    <!-- Modal -->
+    <div id="class-creation-modal"
+        class="hidden fixed inset-0 bg-gray-600 m-5 bg-opacity-50 overflow-y-auto h-full w-full" role="dialog"
+        aria-modal="true">
+        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
             <button id="close-class-creation-modal"
                 class="absolute top-0 right-0 mt-3 mr-3 text-gray-600 hover:text-gray-800 focus:outline-none"
                 onclick="document.getElementById('class-creation-modal').classList.add('hidden')">
                 <i class="fa fa-times"></i>
             </button>
-                <div class="mt-3 text-center">
-                    <h3 class="text-lg leading-6 font-medium text-gray-900">Add new payment</h3>
-                    
-                    <div class="mt-2 px-7 py-3">
-                        <form id="add-payment">
-                            <div class="space-y-4">
+            <div class="mt-3 text-center">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">Add new payment</h3>
+
+                <div class="mt-2 px-7 py-3">
+                    <form id="add-payment">
+                        <div class="space-y-4">
 
                             <div>
-                                <label for="registrationId" class="block text-sm font-medium mb-2 text-left">Search by Registration ID</label>
+                                <label for="registrationId" class="block text-sm font-medium mb-2 text-left">Search by
+                                    Registration ID</label>
                                 <input type="text" id="registrationId"
                                     class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500"
                                     placeholder="Enter Registration ID" autocomplete="off" />
@@ -662,72 +606,71 @@
                                     </select>
                                 </div>
                             </div>
-                                <div>
-                                    <label for="teacher" class="block text-sm font-medium mb-2 text-left">Select
-                                        payment</label>
-                                    <div class="relative">
-                                        <select id="payment-type" class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500
+                            <div>
+                                <label for="teacher" class="block text-sm font-medium mb-2 text-left">Select
+                                    payment</label>
+                                <div class="relative">
+                                    <select id="payment-type" class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500
                                     focus:ring-blue-500" required>
-                                            <option value="">Select payment type</option>
-                                        </select>
-                                        <div
-                                            class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
-                                        </div>
+                                        <option value="">Select payment type</option>
+                                    </select>
+                                    <div
+                                        class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
                                     </div>
                                 </div>
-                                <div>
-                                    <label for="payment_method" class="block text-sm font-medium mb-2 text-left">Payment
-                                        Method</label>
-                                    <div class="relative">
-                                        <select id="payment_method" class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500
-                                    focus:ring-blue-500" required onchange="toggleTransactionInput()">
-                                            <option value="">Select payment method</option>
-                                            <option value="POS">POS</option>
-                                            <option value="CASH">Cash</option>
-                                            <option value="TRANSFER">Transfer</option>
-                                        </select>
-                                        <div
-                                            class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
-                                            <!-- Optional: Add an icon if needed -->
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div id="transaction-input" style="display: none;">
-                                    <label for="transaction_number"
-                                        class="block text-sm font-medium mb-2 text-left">Transaction or Reference
-                                        Number</label>
-                                    <div class="relative">
-                                        <input type="text" id="transaction_number" name="transaction_number"
-                                            class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-                                            placeholder="Transaction or Reference number" required>
-                                    </div>
-                                </div>
-
-
-
                             </div>
                             <div>
-                                <label 
-                                    class="block text-sm font-medium mb-1 mt-3 text-left">Amount</label>
+                                <label for="payment_method" class="block text-sm font-medium mb-2 text-left">Payment
+                                    Method</label>
                                 <div class="relative">
-                                    <input type="text" id="deposit" name="amount_paid" class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500
-                                    focus:ring-blue-500" placeholder="Enter amount">
+                                    <select id="payment_method" class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500
+                                    focus:ring-blue-500" required onchange="toggleTransactionInput()">
+                                        <option value="">Select payment method</option>
+                                        <option value="POS">POS</option>
+                                        <option value="CASH">Cash</option>
+                                        <option value="TRANSFER">Transfer</option>
+                                    </select>
+                                    <div
+                                        class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
+                                        <!-- Optional: Add an icon if needed -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="transaction-input" style="display: none;">
+                                <label for="transaction_number"
+                                    class="block text-sm font-medium mb-2 text-left">Transaction or Reference
+                                    Number</label>
+                                <div class="relative">
+                                    <input type="text" id="transaction_number" name="transaction_number"
+                                        class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                                        placeholder="Transaction or Reference number" required>
                                 </div>
                             </div>
 
 
-                            <div class="mt-6">
-                                <button type="submit"
-                                    class="w-full px-3 py-3 bg-blue-600 hover:bg-blue-700 duration-200 text-sm font-medium text-white rounded-lg">
-                                    add
-                                </button>
+
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1 mt-3 text-left">Amount</label>
+                            <div class="relative">
+                                <input type="text" id="deposit" name="amount_paid" class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500
+                                    focus:ring-blue-500" placeholder="Enter amount">
                             </div>
-                        </form>
-                    </div>
+                        </div>
+
+
+                        <div class="mt-6">
+                            <button type="submit"
+                                class="w-full px-3 py-3 bg-blue-600 hover:bg-blue-700 duration-200 text-sm font-medium text-white rounded-lg">
+                                add
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <script type="module" src="assets/js/auth.js"></script>
     <script type="module" src="assets/js/index.js"></script>
@@ -740,167 +683,8 @@
     <script type="module" src="assets/js/makepayment.js"></script>
     <script type="module" src="assets/js/allpay.js"></script>
     <script type="module" src="assets/js/createfee.js"></script>
-
-    <script>
-        var options = {
-            series: [{
-                name: "Income",
-                data: [5000, 6000, 5500, 1300, 9000, 9500, 8700, 5600, 4500, 7600, 8250, 9230]
-            }],
-            chart: {
-                height: 350,
-                type: 'line',
-                zoom: {
-                    enabled: false
-                }
-            },
-            dataLabels: {
-                enabled: false
-            },
-            stroke: {
-                curve: 'smooth'
-            },
-            grid: {
-                row: {
-                    colors: ['#f3f3f3', 'transparent'],
-                    opacity: 0.5
-                },
-            },
-            xaxis: {
-                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
-            },
-            yaxis: {
-                title: {
-                    text: 'Amount (₦)',
-                },
-                labels: {
-                    formatter: function (value) {
-                        return '₦' + value.toLocaleString();
-                    }
-                }
-            },
-            tooltip: {
-                y: {
-                    formatter: function (value) {
-                        return '₦' + value.toLocaleString();
-                    }
-                }
-            }
-        };
-
-        var chart = new ApexCharts(document.querySelector("#incomeChart"), options);
-        chart.render();
-    </script>
-    
-    <script>
-        var options = {
-            series: [43, 27, 33],
-            chart: {
-                height: 350,
-                type: 'donut',
-                // width: "75%",
-            },
-            labels: ['School Fees', 'Sport', 'Medical'],
-            colors: ['#4CAF50', '#FF9800', '#F44336'],
-            plotOptions: {
-                pie: {
-                    donut: {
-                        size: '65%',
-
-                        labels: {
-                            show: true,
-                            total: {
-                                show: true,
-                                label: 'Total',
-                                formatter: () => '8M'
-                            }
-                        }
-                    }
-                },
-            },
-            stroke: {
-                show: true,
-                width: 10,
-                colors: ['#fff']
-            },
-            dataLabels: {
-                enabled: false
-            },
-            legend: {
-                show: false
-            },
-            tooltip: {
-                y: {
-                    formatter: function (value) {
-                        return value + '%';
-                    }
-                }
-            }
-        };
-
-        var chart = new ApexCharts(document.querySelector("#categoryBreakdown"), options);
-        chart.render();
-    </script>
-    <script>
-        var options = {
-            series: [
-                {
-                    name: 'Paid',
-                    data: [100, 80, 60, 40, 20, 50]
-                },
-                {
-                    name: 'Unpaid',
-                    data: [20, 30, 40, 50, 60, 70]
-                }
-            ],
-            chart: {
-                type: 'bar',
-                height: 350,
-                stacked: false,
-            },
-            plotOptions: {
-                bar: {
-                    horizontal: false,
-                    columnWidth: '35%',
-                    endingShape: 'rounded'
-                },
-            },
-            colors: ['#4CAF50', '#F44336'],
-            dataLabels: {
-                enabled: false
-            },
-            stroke: {
-                show: true,
-                width: 2,
-                colors: ['transparent']
-            },
-            xaxis: {
-                categories: ['JSS 1', 'JSS 2', 'JSS 3', 'SSS 1', 'SSS 2', 'SSS 3'],
-            },
-            yaxis: {
-                title: {
-                    text: 'Amount'
-                }
-            },
-            fill: {
-                opacity: 1
-            },
-            tooltip: {
-                y: {
-                    formatter: function (val) {
-                        return "₦" + val + "K";
-                    }
-                }
-            },
-            legend: {
-                show: false
-            }
-        };
-
-        var chart = new ApexCharts(document.querySelector("#schoolFees"), options);
-        chart.render();
-
-    </script>
+    <script type="module" src="assets/js/analytics.js"></script>
+    <script type="module" src="assets/js/analy2.js"></script>
 </body>
 
 </html>
