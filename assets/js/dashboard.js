@@ -161,7 +161,9 @@ const prevMonth = document.getElementById("prevMonth");
 const nextMonth = document.getElementById("nextMonth");
 
 let currentDate = new Date();
+let allEvents = []; // Store all events globally
 
+// Function to render the calendar
 function renderCalendar(date) {
   const month = date.getMonth();
   const year = date.getFullYear();
@@ -206,7 +208,20 @@ function renderCalendar(date) {
       month === today.getMonth() &&
       year === today.getFullYear()
     ) {
-      dayCell.classList.add("current-day"); // Add the current-day class
+      dayCell.classList.add("current-day");
+    }
+
+    // Highlight event dates
+    const eventDate = new Date(year, month, i);
+    const eventExists = allEvents.some((event) => {
+      const eventDay = new Date(event.date).getDate();
+      const eventMonth = new Date(event.date).getMonth();
+      const eventYear = new Date(event.date).getFullYear();
+      return eventDay === i && eventMonth === month && eventYear === year;
+    });
+
+    if (eventExists) {
+      dayCell.classList.add("event-day");
     }
 
     calendarGrid.appendChild(dayCell);
@@ -224,23 +239,19 @@ nextMonth.addEventListener("click", () => {
   renderCalendar(currentDate);
 });
 
-// Initial render
-renderCalendar(currentDate);
-
-let allEvents = []; // Store all events globally
-
+// Fetch events from API
 async function fetchEvents() {
   try {
-    const response = await fetch(
-      `${api}/program/events/`
-    );
-    allEvents = await response.json(); // Store fetched events
-    displayEvents(allEvents); // Display all events initially
+    const response = await fetch(`${api}/program/events/`);
+    allEvents = await response.json();
+    displayEvents(allEvents.slice(0, 2)); // Display only first 2 events initially
+    renderCalendar(currentDate); // Re-render calendar with events
   } catch (error) {
     console.error("Error fetching events:", error);
   }
 }
 
+// Function to display events
 function displayEvents(events) {
   const eventsContainer = document.getElementById("events-container");
   eventsContainer.innerHTML = ""; // Clear existing content
@@ -269,6 +280,7 @@ function displayEvents(events) {
   });
 }
 
+// Function to filter events
 function filterEvents(filter) {
   let filteredEvents = allEvents;
 
@@ -300,7 +312,7 @@ function filterEvents(filter) {
       break; // No filter applied
   }
 
-  displayEvents(filteredEvents); // Display filtered events
+  displayEvents(filteredEvents.slice(0, 2)); // Display only first 2 events
 }
 
 // Event listeners for filter buttons
