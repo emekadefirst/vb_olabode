@@ -50,6 +50,16 @@
         padding-right: 10px;
         /* White background for day cells */
     }
+    .current-day {
+  background-color: #f0a500;
+  color: white;
+}
+
+.event-day {
+  background-color: #ffeb3b;
+  color: rgb(20, 231, 125);
+}
+
 </style>
 
 <body>
@@ -213,7 +223,7 @@
                         data-hs-accordion-always-open>
                         <ul class="flex flex-col space-y-2">
                             <li>
-                                <a class="flex items-center gap-x-3.5 font-medium py-2 px-2.5 text-sm text-white rounded-lg bg-[#007BFF] focus:outline-none focus:bg-gray-100"
+                                <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg bg-blue-600"
                                     href="dashboard.html">
                                     <i class="fa fa-home text-white"></i>
                                     <span>Home</span>

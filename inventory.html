@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
+
     <title>Inventory Management || Verbum</title>
+
+    <title>Fee and Payment || Verbum</title>
+
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/images/fav.png">
@@ -15,8 +19,36 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<style>
+    .table-wrapper {
+        overflow-x: auto;
+        max-width: 100%;
+    }
+
+    .table-wrapper table {
+        width: 100%;
+        min-width: 1000px;
+        /* Adjust based on your content */
+    }
+
+    .apexcharts-legend {
+        display: none;
+        /* This will hide the legend div */
+    }
+
+    foreignObject {
+        display: none;
+        /* This will hide the entire foreignObject */
+    }
+</style>
+
 
 <body>
     <!-- ========== HEADER ========== -->
@@ -35,7 +67,11 @@
             <div class="w-full flex items-center justify-end ms-auto md:justify-between gap-x-1 md:gap-x-3">
                 <div class="hidden md:block">
                     <p class="font-medium text-sm text-gray-600">Home / Dashboard</p>
+
                     <h3 class="text-md md:text-xl text-blue-600 font-bold">Inventory Management</h3>
+
+                    <h3 class="text-md md:text-xl text-blue-600 font-bold">Inventory</h3>
+
                 </div>
 
 
@@ -143,7 +179,11 @@
                         </svg>
                     </li>
                     <li class="text-sm font-semibold text-gray-800 truncate" aria-current="page"></li>
+
                     Inventory
+
+                    Teachers
+
                     </li>
                 </ol>
                 <!-- End Breadcrumb -->
@@ -165,7 +205,11 @@
             <div class="px-6 pt-4 border-b border-gray-300">
                 <!-- Logo -->
                 <a class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-none focus:opacity-80"
+
                     href="dashboard.html" aria-label="Preline">
+
+                    href="#" aria-label="Preline">
+
                     <img src="assets/images/logo.png" alt="logo">
                 </a>
                 <!-- End Logo -->
@@ -181,7 +225,11 @@
                         data-hs-accordion-always-open>
                         <ul class="flex flex-col space-y-2">
                             <li>
+
                                 <a class="w-full flex items-center gap-x-3.5 py-2 font-medium px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+
+                                <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+
                                     href="dashboard.html">
                                     <i class="fa fa-home text-gray-500"></i>
                                     <span>Home</span>
@@ -189,7 +237,11 @@
                             </li>
 
                             <li>
+
                                 <a class="w-full flex items-center gap-x-3.5 py-2 font-medium px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+
+                                <a class="flex items-center gap-x-3.5 py-2 px-2.5 hover:bg-gray-100 text-sm text-gray-800 rounded-lg focus:outline-none"
+
                                     href="students.html">
                                     <i class="fa fa-graduation-cap text-gray-500"></i>
                                     <span>Student Management</span>
@@ -197,15 +249,26 @@
                             </li>
 
                             <li>
+
                                 <a class="w-full flex items-center gap-x-3.5 py-2 font-medium px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
                                     href="teachers.html">
                                     <i class="fa fa-chalkboard-user text-gray-500"></i>
                                     Teacher Management
+
+                                <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+                                    href="teachers.html">
+                                    <i class="fa fa-chalkboard-user text-gray-500"></i>
+                                    Teachers Management
+
                                 </a>
                             </li>
 
                             <li>
+
                                 <a class="w-full flex items-center gap-x-3.5 py-2 font-medium px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+
+                                <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg"
+
                                     href="fees.html">
                                     <i class="fa fa-money-bill text-gray-500"></i>
                                     Fees and Payments
@@ -213,15 +276,24 @@
                             </li>
 
                             <li>
+
                                 <a class="w-full flex items-center gap-x-3.5 py-2 font-medium px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+
+                                <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+
                                     href="classes.html">
                                     <i class="fa fa-pen text-gray-500"></i>
                                     Class and Exam
                                 </a>
                             </li>
 
+
                             <!-- <li>
                                 <a class="w-full flex items-center gap-x-3.5 py-2 font-medium px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+
+                            <li>
+                                <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+
                                     href="library.html">
                                     <i class="fa fa-book text-gray-500"></i>
                                     Library Management
@@ -232,14 +304,28 @@
                                 <a class="w-full flex items-center gap-x-3.5 py-2 font-medium px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
                                     href="inventory.html">
                                     <i class="fa fa-sitemap text-gray-500"></i>
+
+                            </li>
+
+                            <li>
+                                <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg bg-blue-600"
+                                    href="inventory.html">
+                                    <i class="fa fa-sitemap text-white"></i>
+
                                     Inventory Management
                                 </a>
                             </li>
 
                             <li>
+
                                 <a class="flex items-center gap-x-3.5 font-medium py-2 px-2.5 text-sm text-white rounded-lg bg-[#007BFF] focus:outline-none focus:bg-gray-100"
                                     href="events.html">
                                     <i class="fa fa-school text-white"></i>
+
+                                <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+                                    href="events.html">
+                                    <i class="fa fa-school text-gray-500"></i>
+
                                     Event Management
                                 </a>
                             </li>
@@ -257,6 +343,7 @@
         <!-- End Content -->
     </div>
     <!-- End Sidebar -->
+
 
     <!-- Content -->
     <div class="w-full lg:ps-64">
@@ -462,6 +549,45 @@
     <script type="module" src="assets/js/index.js"></script>
     <script type="module" src="assets/js/getstudent.js"></script>
     <script type="module" src="assets/js/dashboard.js"></script>
+=======
+<div class="min-h-screen flex items-center justify-center bg-white">
+    <div class="text-center p-6 border border-gray-300 rounded-lg shadow-lg">
+        <div class="flex justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8v4l3 2m-6 0l3-2V8m0 10v2m-5-3.586L6.293 14.707a1 1 0 001.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L10.414 14 13 11.586V14m3-10h1a1 1 0 011 1v1m-2-3a1 1 0 011-1h1m-3 0a1 1 0 011 1v1m-2-1V2m-6.586 6.414A1 1 0 006 9h1m2 0a1 1 0 00-1-1H4.414A1 1 0 003 8.586L5.414 11H6m4 0H4m8 4h1a1 1 0 011 1v1m-2-3a1 1 0 011 1v1m-2-1V14" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-600" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M13 10V3H6v10h7zm1 0h6v6h-6v-6zm0 0H11m2 0h-2m1-8v2m0 4V6m0 6h-2v4m2-4h2m-2 0h-2" />
+            </svg>
+        </div>
+        <h1 class="text-blue-600 text-2xl font-semibold">Page Under Construction</h1>
+        <p class="text-gray-700 text-base mt-2">We are currently working on this page. Please check back soon!</p>
+    </div>
+</div>
+
+
+
+
+
+
+    <script type="module" src="assets/js/auth.js"></script>
+    <script type="module" src="assets/js/index.js"></script>
+    <!-- <script src="assets/js/getteachers.js"></script> -->
+    <script src="assets/js/logout.js"></script>
+    <script type="module" src="assets/js/dashboard.js"></script>
+    <script type="module" src="assets/js/fee.js"></script>
+    <script type="module" src="assets/js/fetchpaymentdetails.js"></script>
+    <script type="module" src="assets/js/allpayment.js"></script>
+    <script type="module" src="assets/js/makepayment.js"></script>
+    <script type="module" src="assets/js/allpay.js"></script>
+    <script type="module" src="assets/js/createfee.js"></script>
+    <script type="module" src="assets/js/analytics.js"></script>
+    <script type="module" src="assets/js/analy2.js"></script>
+
 </body>
 
 </html>
