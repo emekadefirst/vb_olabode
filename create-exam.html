@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>Fees and Payments || Verbum</title>
+    <title>Create Exam || Verbum</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/images/fav.png">
@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
 
 <body>
@@ -35,7 +34,7 @@
             <div class="w-full flex items-center justify-end ms-auto md:justify-between gap-x-1 md:gap-x-3">
                 <div class="hidden md:block">
                     <p class="font-medium text-sm text-gray-600">Home / Dashboard</p>
-                    <h3 class="text-md md:text-xl text-blue-600 font-bold">Fees and payments</h3>
+                    <h3 class="text-md md:text-xl text-blue-600 font-bold">Class and Exam</h3>
                 </div>
 
 
@@ -184,7 +183,7 @@
                         </svg>
                     </li>
                     <li class="text-sm font-semibold text-gray-800 truncate" aria-current="page"></li>
-                    Fees and payments
+                    Create Exam
                     </li>
                 </ol>
                 <!-- End Breadcrumb -->
@@ -239,24 +238,24 @@
 
                             <li>
                                 <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
-                                    href="teachers.html">
+                                    href="reports.html">
                                     <i class="fa fa-chalkboard-user text-gray-500"></i>
-                                    Teachers Management
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg bg-blue-600"
-                                    href="fees.html">
-                                    <i class="fa fa-money-bill text-white"></i>
-                                    Fees and Payments
+                                    Teacher Management
                                 </a>
                             </li>
 
                             <li>
                                 <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+                                    href="reports.html">
+                                    <i class="fa fa-money-bill text-gray-500"></i>
+                                    Fees and Payments
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-white rounded-lg bg-blue-600"
                                     href="classes.html">
-                                    <i class="fa fa-pen text-gray-500"></i>
+                                    <i class="fa fa-pen text-white"></i>
                                     Class and Exam
                                 </a>
                             </li>
@@ -317,189 +316,114 @@
     <div class="w-full lg:ps-64">
         <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
             <!-- your content goes here ... -->
-
-            <div class="border-b border-gray-200">
-                <nav class="flex gap-x-1 md:gap-x-2 lg:gap-x-5" aria-label="Tabs" role="tablist"
-                    aria-orientation="horizontal">
-                    <button type="button"
-                        class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none active"
-                        id="tabs-with-underline-item-1" aria-selected="true" data-hs-tab="#tabs-with-underline-1"
-                        aria-controls="tabs-with-underline-1" role="tab">
-                        Reports
-                    </button>
-                    <button type="button"
-                        class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none"
-                        id="tabs-with-underline-item-2" aria-selected="false" data-hs-tab="#tabs-with-underline-2"
-                        aria-controls="tabs-with-underline-2" role="tab">
-                        School Fees
-                    </button>
-                </nav>
-            </div>
-
-            <div class="mt-3">
-            <div id="tabs-with-underline-1" role="tabpanel" aria-labelledby="tabs-with-underline-item-1">
-                <div class="flex items-center justify-between">
-                    <div class="flex space-x-3 items-center">
-                        <p>From:</p>
-                        <input type="date" class="w-[140px] text-sm px-1 py-2 bg-gray-50 border border-gray-300 rounded-lg">
-                        <p>To:</p>
-                        <input type="date" class="w-[140px] text-sm px-1 py-2 bg-gray-50 border border-gray-300 rounded-lg">
-                    </div>
-                    <button
-                        class="bg-blue-600 text-white text-sm px-4 py-2 rounded-lg font-medium hover:bg-blue-700 duration-150">Export
-                        Data</button>
+            <div class="bg-white rounded-lg overflow-hidden">
+                <div class="bg-gray-100 px-3 py-2">
+                    <p class="text-md lg:text-lg font-semibold">Create New Exam</p>
                 </div>
 
-                <div class="mt-4 grid gap-4 grid-cols-1 md:grid-cols-[1fr,24rem]">
-                    <div class="bg-white border border-gray-300 rounded-lg px-3 py-5">
-                        <div class="flex items-center space-x-2">
-                            <p class="text-sm font-medium">Filter:</p>
-                            <select class="px-3 py-1 px-1 bg-gray-50 border border-gray-300 rounded-lg text-sm" id="chartFilter">
-                                <option value="income">Income</option>
-                                <option value="outstanding">Outstanding</option>
-                                <option value="expense">Expense</option>
-                            </select>
-
+                <div class="px-3 py-6">
+                    <div class="grid gap-4 grid-cols-1 md:grid-cols-3 mt-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Exam title</label>
+                            <input type="text"
+                                class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
                         </div>
 
-                        <div id="incomeChart" class="mt-4"></div>
-                        <div id="outstandingChart" class="mt-4"></div>
-                        <div id="expenseChart" class="mt-4"></div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Class</label>
+                            <select
+                                class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+
+                                <option value="">JSS1</option>
+                                <option value="">JSS2</option>
+                                <option value="">JSS3</option>
+                                <option value="">SS1</option>
+                                <option value="">SS2</option>
+                                <option value="">SS3</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Subject</label>
+                            <select
+                                class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+
+                                <option value="">Mathematics</option>
+                                <option value="">English Language</option>
+                                <option value="">Basic Science</option>
+                                <option value="">Basic Tech</option>
+                                <option value="">Home Economics</option>
+                                <option value="">Social Studies</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Exam date</label>
+                            <input type="date"
+                                class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Start time</label>
+                            <input type="time"
+                                class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Duration</label>
+                            <input type="text"
+                                class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Maximum Questions</label>
+                            <input type="number" placeholder="100"
+                                class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Teacher Assigned</label>
+                            <select
+                                class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+
+                                <option value="">Mr John Doe</option>
+                                <option value="">Mrs Jane Doe</option>
+                                <option value="">Mrs Mat Doe</option>
+                            </select>
+                        </div>
                     </div>
+
+                    <div class="grid gap-4 grid-cols-1 md:grid-cols-3 mt-3">
+                        <div class="col-span-2">
+                            <label class="block text-sm font-medium mb-2">Instructions</label>
+                            <textarea
+                                class="w-full h-[120px] py-3 px-4 border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 resize-none"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-end items-center space-x-3 pb-4 pr-3">
+                    <button
+                        class="bg-transparent text-blue-600 text-sm px-4 py-2 rounded-lg font-medium">
+                        Save draft
+                    </button>
+
+
+                    <a href="enroll-student.html"
+                        class="bg-blue-600 text-white text-sm px-4 py-2 rounded-lg font-medium hover:bg-blue-700 duration-150">Next</a>
+
                 </div>
             </div>
 
         </div>
 
     </div>
+    <!-- End Content -->
+    <!-- ========== END MAIN CONTENT ========== -->
+
+    <!-- JS Implementing Plugins -->
+    <!-- Required plugins -->
     <script src="assets/js/index.js"></script>
-<script>
-    let cachedPayments = [];
-    let cachedExpenses = [];
-
-    async function fetchPaymentData() {
-        const response = await fetch('http://127.0.0.1:8000/payment/physical-payments/');
-        cachedPayments = await response.json();
-        return cachedPayments;
-    }
-
-    async function fetchExpenseData() {
-        const response = await fetch('http://127.0.0.1:8000/inventory/all-inventory/');
-        cachedExpenses = await response.json();
-        return cachedExpenses;
-    }
-
-    async function loadData() {
-        await Promise.all([fetchPaymentData(), fetchExpenseData()]);
-        updateIncomeChart();
-        updateOutstandingChart();
-        updateExpenseChart();
-    }
-
-    function updateIncomeChart() {
-        const incomeData = [];
-        const categories = [];
-
-        cachedPayments.forEach(payment => {
-            const paymentDate = new Date(payment.payment_name.created_at);
-            categories.push(paymentDate.toLocaleDateString());
-            incomeData.push(payment.amount_paid);
-        });
-
-        const options = createChartOptions("Income", incomeData, categories);
-        renderChart("#incomeChart", options);
-    }
-
-    function updateOutstandingChart() {
-        const outstandingData = [];
-        const categories = [];
-
-        cachedPayments.forEach(payment => {
-            const paymentDate = new Date(payment.payment_name.created_at);
-            categories.push(paymentDate.toLocaleDateString());
-            outstandingData.push(payment.balance);
-        });
-
-        const options = createChartOptions("Outstanding", outstandingData, categories);
-        renderChart("#outstandingChart", options);
-    }
-
-    function updateExpenseChart() {
-        const expenseData = [];
-        const categories = [];
-
-        cachedExpenses.forEach(expense => {
-            const expenseDate = new Date(expense.time_of_purchase);
-            categories.push(expenseDate.toLocaleDateString());
-            expenseData.push(expense.total_cost);
-        });
-
-        const options = createChartOptions("Expenses", expenseData, categories);
-        renderChart("#expenseChart", options);
-    }
-
-    function createChartOptions(name, data, categories) {
-        return {
-            series: [{
-                name: name,
-                data: data
-            }],
-            chart: {
-                height: 350,
-                type: 'line',
-                zoom: {
-                    enabled: false
-                }
-            },
-            dataLabels: {
-                enabled: false
-            },
-            stroke: {
-                curve: 'smooth'
-            },
-            grid: {
-                row: {
-                    colors: ['#f3f3f3', 'transparent'],
-                    opacity: 0.5
-                },
-            },
-            xaxis: {
-                categories: categories.length > 0 ? categories : ['No Data'],
-            },
-            yaxis: {
-                title: {
-                    text: 'Amount (₦)',
-                },
-                labels: {
-                    formatter: function (value) {
-                        return '₦' + value.toLocaleString();
-                    }
-                }
-            },
-            tooltip: {
-                y: {
-                    formatter: function (value) {
-                        return '₦' + value.toLocaleString();
-                    }
-                }
-            }
-        };
-    }
-
-    function renderChart(selector, options) {
-        const chart = new ApexCharts(document.querySelector(selector), options);
-        chart.render();
-    }
-
-    // Load data and render all charts on initial load
-    loadData();
-</script>
-
-
-
-
-
-
 
 </body>
 
