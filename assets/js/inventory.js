@@ -117,10 +117,11 @@ document.addEventListener("DOMContentLoaded", async function () {
                             <input type="checkbox" class="border-gray-300 rounded text-blue-600 focus:ring-blue-500">
                         </div>
                     </td>
-                    <td class="py-4 px-6 text-sm text-gray-500">${item.type}</td>
                     <td class="py-4 px-6 text-sm text-gray-500">${item.name}</td>
+                    <td class="py-4 px-6 text-sm text-gray-500">${item.type}</td>
                     <td class="py-4 px-6 text-sm text-gray-500">${item.quantity}</td>
                     <td class="py-4 px-6 text-sm text-gray-500">${item.unit_cost}</td>
+                    <td class="py-4 px-6 text-sm text-gray-500">${item.total_cost}</td>
                   
                 `;
 
